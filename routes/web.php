@@ -15,6 +15,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('alinuta',function(){
-	return "Ieiii it works";
-});
