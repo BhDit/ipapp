@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -51,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
     }
 
@@ -68,4 +70,31 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+     public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        $token = $request->input('g-recaptcha-response');
+
+        if ($token){
+
+        return $this->registered($request, $user)
+             ?: redirect($this->redirectPath());
+
+        } else {
+            return redirect('auth.register');
+        }
+    }
+    
 }
