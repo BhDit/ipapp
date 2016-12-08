@@ -19,9 +19,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    
+    @yield('head-scripts')
 </head>
 <body>
     <div id="app">
@@ -86,5 +84,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('end-scripts')
 </body>
 </html>
