@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -52,7 +53,9 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|recaptcha'
+        ],[
+            'g-recaptcha-response.required' => "The captcha field is required"
         ]);
     }
 
@@ -71,12 +74,6 @@ class RegisterController extends Controller
         ]);
     }
 
-     public function showRegistrationForm()
-    {
-        return view('auth.register');
-    }
-
-
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -85,16 +82,7 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        $token = $request->input('g-recaptcha-response');
-
-        if ($token){
-
-        return $this->registered($request, $user)
-             ?: redirect($this->redirectPath());
-
-        } else {
-            return redirect('auth.register');
-        }
+        return redirect($this->redirectPath());
     }
     
 }
