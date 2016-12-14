@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/sabina', function(){
 	return 'It works';
 });
+
+
+Route::resource('problems','ProblemController');
