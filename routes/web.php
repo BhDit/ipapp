@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sabina', function(){
-	return 'It works';
-});
 
 
-Route::resource('problems','ProblemController');
+//Route::resource('problems','ProblemController');
+
