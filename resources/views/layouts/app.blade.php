@@ -12,17 +12,20 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.IPAPP = <?= json_encode([
             'csrfToken' => csrf_token(),
+            'user' => auth()->user() ?? null,
+            'userId' => auth()->user()->id ?? null,
+            'usesApi' => false,
         ]); ?>
     </script>
     @yield('head-scripts')
 </head>
 <body>
-<div id="app">
+<div id="ipapp">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -41,7 +44,6 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
-
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
@@ -58,14 +60,17 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                @{{ipapp.user.name}} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a href="{{url('/profile/edit')}}">Edit profile</a>
+                                </li>
+                                <li class="delimiter"></li>
+                                <li>
                                     <a href="{{ url('/logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                       @click.prevent="logout">
                                         Logout
                                     </a>
 
@@ -81,13 +86,11 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
 </div>
 
 <!-- Scripts -->
-<script src="/js/app.js"></script>
-
-@yield('end-scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+@yield('end-scripts','<script src="/js/app.js"></script>')
 </body>
 </html>
