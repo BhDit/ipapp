@@ -12,12 +12,12 @@
 <body>
 <div class="container">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="/">Welcome</a></li>
-        <li><a data-toggle="tab" href="/profile">Profile</a></li>
-        <li><a data-toggle="tab" href="/problems">Problems</a></li>
-        <li><a data-toggle="tab" href="/contact">Contacts</a></li>
-        <li><a data-toggle="tab" href="/news">News</a></li>
-        <li><a data-toggle="tab" href="/signin">Sign in</a></li>
+        <li class="{{ Request::is('/') ? "active" : "" }}"><a data-toggle="tab" href="/">Welcome</a></li>
+        <li class="{{ Request::is('profile') ? "active" : "" }}"><a data-toggle="tab" href="/profile">Profile</a></li>
+        <li class="{{ Request::is('problems') ? "active" : "" }}"><a data-toggle="tab" href="/problems">Problems</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a data-toggle="tab" href="/contact">Contacts</a></li>
+        <li class="{{ Request::is('news') ? "active" : "" }}"><a data-toggle="tab" href="/news">News</a></li>
+        <li class="{{ Request::is('signin') ? "active" : "" }}"><a data-toggle="tab" href="/signin">Sign in</a></li>
     </ul>
 </div>
 
