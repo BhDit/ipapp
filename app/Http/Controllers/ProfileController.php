@@ -13,6 +13,7 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function edit()
     {
         return view('pages.profile-edit');
