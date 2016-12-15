@@ -11,4 +11,12 @@ class Problem extends Model
     {
         return $this->belongsToMany(Contest::class);
     }
+
+    public function solutions()
+    {
+        return $this->hasMany(Solution::class);
+    }
+
+
+    
 }
