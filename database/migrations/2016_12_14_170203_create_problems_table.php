@@ -14,14 +14,16 @@ class CreateProblemsTable extends Migration
     public function up()
     {
         Schema::create('problems', function (Blueprint $table) {
+
             $table->increments('id');
+
             $table->string('title');
             $table->text('description');
             $table->string('answer');
-            $table->integer('score');
+            $table->unsignedInteger('score');
             $table->enum('level',['low','medium','hard']);
-            $table->boolean('should_show');
-            $table->integer('id_contest');
+            $table->boolean('should_show')->default(true);
+
             $table->timestamps();
         });
     }
