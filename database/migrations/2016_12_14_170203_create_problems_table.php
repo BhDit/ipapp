@@ -17,7 +17,7 @@ class CreateProblemsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('answear');
+            $table->string('answer');
             $table->integer('score');
             $table->enum('level',['low','medium','hard']);
             $table->boolean('should_show');
