@@ -9,6 +9,11 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function edit()
     {
         return view('pages.profile-edit');
@@ -21,7 +26,7 @@ class ProfileController extends Controller
             });
         */
     }
-
+    //TODO: create ProfileEditFormRequest
     public function update(Request $request)
     {
         if (empty($request->input('password'))) {

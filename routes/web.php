@@ -21,10 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+/* PROFILE */
 Route::get('/profile/edit',"ProfileController@edit");
 Route::put('/profile',"ProfileController@update");
 
-
-//Route::resource('problems','ProblemController');
-
-
+/* PROBLEMS */
+Route::get('problem/{problem}','ProblemController@show');

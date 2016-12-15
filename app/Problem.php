@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Problem extends Model
 {
-    //
+
     public function contests()
     {
         return $this->belongsToMany(Contest::class);
