@@ -16,9 +16,15 @@ Route::get('/', function () {
 });
 
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/profile/edit',"ProfileController@edit");
 Route::put('/profile',"ProfileController@update");
+
+
+//Route::resource('problems','ProblemController');
+
+
