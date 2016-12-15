@@ -26,7 +26,7 @@ class ProfileController extends Controller
             });
         */
     }
-
+    //TODO: create ProfileEditFormRequest
     public function update(Request $request)
     {
         if (empty($request->input('password'))) {
