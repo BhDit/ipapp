@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Exceptions\Problem\IncorrectAnswer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -32,12 +33,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Problem::class, 'answers');
     }
 
-    public function solve(Problem $problem, string $answer): bool
+    public function solve(Problem $problem,string $answer): bool
     {
-        if ($problem->answer != $answer) {
-            return false;
+        if($problem->check($answer)){
+            $this->solved()->attach($problem);
+            return true;
         }
-        $this->solved()->attach($problem);
-        return true;
+        throw new IncorrectAnswer();
     }
 }
