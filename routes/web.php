@@ -38,9 +38,21 @@ Route::get('signin',function(){
 
 
 
+
+
 Auth::routes();
 
 
 
 
+
+
+Route::get('/home', 'HomeController@index');
+
+/* PROFILE */
+Route::get('/profile/edit',"ProfileController@edit");
+Route::put('/profile',"ProfileController@update");
+
+/* PROBLEMS */
+Route::get('problem/{problem}','ProblemController@show');
 
