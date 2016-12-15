@@ -30,5 +30,7 @@ wpConfig = {
 elixir((mix) => {
     mix.sass('app.scss')
         .webpack('app.js',null,null,wpConfig)
-        .webpack('pages/profile-edit.js',null,null,wpConfig);
+        .webpack('pages/profile-edit.js',null,null,wpConfig)
+        .webpack('pages/problems-page.js',null,null,wpConfig)
+        .webpack('pages/problem-page.js',null,null,wpConfig);
 });

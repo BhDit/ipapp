@@ -1,4 +1,4 @@
-@extends ('layout')
+@extends ('design.layout')
 @section('part3')
 Aici vom avea partea de login  si inregistrare
 <br>

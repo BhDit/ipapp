@@ -40,7 +40,7 @@
                     <h1>Profile Card</h1>
                 </div>
             @else
-                <div class="col-md-12">
+                <div class="col-md-8">
                     @yield('content')
                 </div>
             @endif

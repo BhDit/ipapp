@@ -5767,6 +5767,7 @@ button.close {
     display: none !important; } }
 
 .content {
-  background: white; }
+  background: white;
+  padding: 50px; }
 
 /*# sourceMappingURL=app.css.map */

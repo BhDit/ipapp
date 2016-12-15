@@ -20,7 +20,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="">Profile</a></li>
-                <li><a href="">Problems</a></li>
+                <li><a href="{{url('/problems')}}">Problems</a></li>
                 <li><a href="">Contacts</a></li>
                 <li><a href="">News</a></li>
             </ul>

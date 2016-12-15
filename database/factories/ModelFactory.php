@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Problem::class, function(Faker\Generator $faker) {
 
     return [
-        'title' => $faker->title,
+        'title' => $faker->sentence,
         'description' => $faker->paragraph,
         'answer' => $faker->numberBetween(),
         'score' => 5,

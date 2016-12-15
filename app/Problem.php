@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Problem extends Model
 {
 
+    protected $hidden = ['answer'];
+
     public function contests()
     {
         return $this->belongsToMany(Contest::class);
