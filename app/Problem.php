@@ -7,8 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Problem extends Model
 {
     //
-    public function problems()
+    public function contests()
     {
-        return $this->belongsToMany('App\Contest');
+        return $this->belongsToMany(Contest::class);
     }
+
+    public function solutions()
+    {
+        return $this->hasMany(Solution::class);
+    }
+
+
+    
 }
