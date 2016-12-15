@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use IncorrectAnswer;
 
 class Problem extends Model
 {
@@ -17,6 +18,12 @@ class Problem extends Model
         return $this->hasMany(Solution::class);
     }
 
-
+    public function check(string $answer,callable $solve)
+    {
+        if($this->answer == $answer){
+            $solve($this);
+        }
+        throw new IncorrectAnswer;
+    }
     
 }

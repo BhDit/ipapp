@@ -22,3 +22,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Problem::class, function(Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->title,
+        'description' => $faker->paragraph,
+        'answer' => $faker->numberBetween(),
+        'score' => 5,
+        'level' => $faker->randomElement(['low','medium','hard']),
+        'should_show' => true,
+    ];
+});
+
+$factory->define(App\Solution::class, function(Faker\Generator $faker) {
+
+    return [
+        'user_id' => '',
+        'problem_id' => '',
+        'body' => implode("\n",$faker->paragraphs(4))
+    ];
+});
+

@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function solved()
+    {
+        return $this->belongsToMany(Problem::class, 'answers');
+    }
+
+    public function solve(Problem $problem, string $answer): bool
+    {
+        if ($problem->answer != $answer) {
+            return false;
+        }
+        $this->solved()->attach($problem);
+        return true;
+    }
 }
