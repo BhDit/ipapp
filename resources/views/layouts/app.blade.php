@@ -22,6 +22,9 @@
             'usesApi' => false,
         ]); ?>
     </script>
+    <style>
+        @yield('css')
+    </style>
     @yield('head-scripts')
 </head>
 <body>
