@@ -19,10 +19,12 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="">Profile</a></li>
-                <li><a href="{{url('/problems')}}">Problems</a></li>
-                <li><a href="">Contacts</a></li>
-                <li><a href="">News</a></li>
+                @if(Auth::check())
+                    <li><a href="{{url('home')}}">Dashboard</a></li>
+                @endif
+                <li><a href="{{url('problems')}}">Problems</a></li>
+                <li><a href="">?Contact</a></li>
+                <li><a href="">?News</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

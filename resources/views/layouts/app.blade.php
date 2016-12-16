@@ -32,19 +32,7 @@
     @include('navbar.nav')
     <div class="container content">
         <div class="row">
-            @if(\Auth::check())
-                <div class="col-md-8">
-                    @yield('content')
-                </div>
-                <div class="col-md-4">
-                    <h1>Profile Card</h1>
-                </div>
-            @else
-                <div class="col-md-8">
-                    @yield('content')
-                </div>
-            @endif
-
+           @yield('structure')
         </div>
     </div>
 </div>

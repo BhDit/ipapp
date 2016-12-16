@@ -11,7 +11,8 @@
     "php": ">=5.6.4",
     "laravel/framework": "5.3.*",
     "predis/predis": "^1.1",
-    "greggilbert/recaptcha": "dev-master"
+    "greggilbert/recaptcha": "dev-master",
+    "barryvdh/laravel-debugbar": "^2.3"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -53,4 +54,3 @@
     "preferred-install": "dist"
   }
 }
-

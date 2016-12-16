@@ -1,10 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app-full')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">Dashboard</div>
-        <div class="panel-body">
-            Succes!
-        </div>
-    </div>
+    <profile-edit-form></profile-edit-form>
+@endsection
+@section('end-scripts')
+    <script src="{{url('/js/profile-edit.js')}}"></script>
 @endsection

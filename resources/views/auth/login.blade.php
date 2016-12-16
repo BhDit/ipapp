@@ -1,9 +1,4 @@
-@extends('layouts.app')
-@section('css')
-    .content{
-        background: none;
-    }
-@endsection
+@extends('layouts.app-full')
 @section('content')
     <div class="container">
         <div class="row">

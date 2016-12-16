@@ -3,6 +3,7 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'WelcomeController@index');
 
 /* PROFILE */
 Route::get('/profile/edit',"ProfileController@edit");
@@ -15,4 +16,5 @@ Route::get('problems','ProblemsController@index');
 /* XHR */
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');
+    Route::post('check-answer/{problem}','XhrController@checkAnswer');
 });

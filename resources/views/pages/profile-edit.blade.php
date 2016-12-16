@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-full')
 
 @section('content')
         <profile-edit-form></profile-edit-form>

@@ -13,14 +13,15 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers',function(Blueprint $table){
-           $table->unsignedInteger('user_id');
-           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        Schema::create('answers', function (Blueprint $table) {
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-           $table->unsignedInteger('problem_id');
-           $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+            $table->unsignedInteger('problem_id');
+            $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+            $table->timestamps();
 
-           $table->timestamps();
+            $table->unique(['user_id', 'problem_id']);
         });
     }
 
@@ -31,6 +32,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('answers');
     }
 }
