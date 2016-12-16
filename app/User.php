@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Events\ProblemSolved;
+use App\Exceptions\Problem\IncorrectAnswer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +28,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Problems that the user solved
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function solved()
+    {
+        return $this->belongsToMany(Problem::class, 'answers');
+    }
+
+    public function solve(Problem $problem,string $answer): bool
+    {
+        if($problem->check($answer)){
+            $this->solved()->attach($problem);
+            event(new ProblemSolved($this,$problem));
+            return true;
+        }
+        throw new IncorrectAnswer();
+    }
+
 }

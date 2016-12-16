@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smart Ask</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -36,10 +35,15 @@
                 @yield('part1')
             </ul></th>
         <th  style="width:50%">
-@yield('part2')
+            @yield('part2')
         </th>
         <th style="width:20%">
-@yield('part3')
+            @yield('part3')
+
+            if auth
+            @include('profile-card')
+            if not
+            @include('login-card')
         </th>
     </tr>
 </table>

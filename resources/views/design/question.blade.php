@@ -1,4 +1,4 @@
-@extends ('layout')
+@extends ('design.layout')
 
 @section ('part2')
   question

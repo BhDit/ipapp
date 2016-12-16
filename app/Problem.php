@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Exceptions\Problem\IncorrectAnswer;
 use Illuminate\Database\Eloquent\Model;
 
 class Problem extends Model
 {
+
+    protected $hidden = ['answer'];
 
     public function contests()
     {
@@ -17,6 +20,9 @@ class Problem extends Model
         return $this->hasMany(Solution::class);
     }
 
+    public function check(string $answer)
+    {
+        return ($this->answer == $answer) ? true : false;
+    }
 
-    
 }
