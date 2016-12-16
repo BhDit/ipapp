@@ -21,7 +21,8 @@ class CreateAnswersTable extends Migration
             $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
             $table->timestamps();
 
-            $table->unique(['user_id', 'problem_id']);
+            $table->unique(['user_id', 'problem_id'],'user_answer');
+            $table->primary(['user_id', 'problem_id']);
         });
     }
 

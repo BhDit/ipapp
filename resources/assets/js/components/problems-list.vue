@@ -1,22 +1,25 @@
 <template>
     <div>
         <div class="row">
-            <div v-if="loading" class="loading">
-                Working on it :).
-            </div>
-            <div class="col-md-12">
-                <select name="filter" id="filter" v-model="selectedLevel" class="form-control">
-                    <option value="">All</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-                <hr>
+            <div class="col-md-12 problems-header">
+                <span style="font-size:24px">Problems</span>
+                <form class="form-inline level-form">
+                    <div class="form-group">
+                        <label class="control-label vis">Level: </label>
+                        <select name="filter" id="filter" v-model="selectedLevel" class="form-control">
+                            <option value="">All</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </form>
             </div>
         </div>
+        <hr>
         <div class="row">
-            <div class="col-md-12">
-                <ul v-show="filteredProblems.length > 0">
+            <div class="col-md-12 problems-body">
+                <ul class="no-padding no-style" v-show="filteredProblems.length > 0">
                     <li v-for="problem in filteredProblems">
                         <problem :problem="problem"></problem>
                     </li>
@@ -27,19 +30,20 @@
     </div>
 </template>
 <style lang="scss">
-    ul {
-        list-style: none;
-        padding: 0;
+    hr {
+        margin-top: 5px;
+        margin-bottom: 20px;
     }
 
-    .loading {
-        width:100%;
-        height:100px;
+    .problems-header {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
     }
-
+    @media (max-width:400px){
+        .problems-header{
+            flex-direction:column;
+        }
+    }
 </style>
 <script lang="javascript">
 

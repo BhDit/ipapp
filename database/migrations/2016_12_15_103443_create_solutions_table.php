@@ -14,14 +14,20 @@ class CreateSolutionsTable extends Migration
     public function up()
     {
         Schema::create('solutions', function (Blueprint $table) {
+
             $table->unsignedInteger('problem_id');
             $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            //TODO: add language support
-            $table->text('body');
 
+            $table->text('body');
+            $table->unsignedInteger('upvotes');
+            //TODO: add language support
             $table->timestamps();
+
+            $table->unique(['problem_id','user_id'],'users_solution');
+            $table->primary(['problem_id','user_id']);
         });
     }
 

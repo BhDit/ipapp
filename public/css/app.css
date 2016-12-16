@@ -5770,4 +5770,13 @@ button.close {
   background: white;
   padding: 50px; }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+.no-padding {
+  padding: 0; }
+
+.no-style {
+  list-style: none; }
+
 /*# sourceMappingURL=app.css.map */
