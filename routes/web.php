@@ -17,4 +17,5 @@ Route::get('problems','ProblemsController@index');
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');
     Route::post('check-answer/{problem}','XhrController@checkAnswer');
+    Route::post('problem/{problem}/solution','XhrController@storeSolution');
 });

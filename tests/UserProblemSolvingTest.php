@@ -51,4 +51,20 @@ class UserProblemSolvingTest extends TestCase
             'problem_id' => $problem->id
         ]);
     }
+
+    /**
+     * @test Unit Test Problem::isSolvedBy()
+     */
+    public function problem_solved_by_user()
+    {
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user);
+
+        $problem = factory(App\Problem::class)->create();
+        $answer = $problem->answer; // $request->input('answer')
+
+        $user->solve($problem,$answer);
+
+        $this->assertTrue($problem->isSolvedBy($user));
+    }
 }

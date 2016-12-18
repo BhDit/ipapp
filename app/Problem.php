@@ -25,4 +25,22 @@ class Problem extends Model
         return ($this->answer == $answer) ? true : false;
     }
 
+    public function solvers()
+    {
+        return $this->belongsToMany(User::class,'answers');
+    }
+
+    /**
+     * @param User|int $user
+     * @return bool
+     */
+    public function isSolvedBy($user)
+    {
+        if($user instanceof User){
+            return $this->solvers()->where('id',$user->id)->count() > 0;
+        }
+
+        return $this->solvers()->where('id',$user)->count() > 0;
+    }
+
 }

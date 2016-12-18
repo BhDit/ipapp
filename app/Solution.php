@@ -2,11 +2,16 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Solution extends Model
 {
     protected $table = 'solutions';
+
+    protected $with = ['owner'];
+
+    protected $fillable = ['body','user_id'];
 
     public function problem()
     {
@@ -15,6 +20,11 @@ class Solution extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id','id','users');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->attributes['created_at'])->diffForHumans();
     }
 }

@@ -38,7 +38,46 @@ class User extends Authenticatable
         return $this->belongsToMany(Problem::class, 'answers');
     }
 
-    public function solve(Problem $problem,string $answer): bool
+    /**
+     * @return mixed
+     */
+    public function solvedProblems()
+    {
+        return $this->solved->pluck('id')->toArray();
+    }
+
+    /**
+     * @param Problem|int $problem
+     * @return bool
+     */
+    public function hasSolvedProblem($problem)
+    {
+        if($problem instanceof Problem){
+            $problem = $problem->id;
+        }
+        return in_array($problem,$this->solvedProblems->pluck('id')->toArray());
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function solutions()
+    {
+        return $this->hasMany(Solution::class);
+    }
+
+    public function postedSolutionTo(int $problemId)
+    {
+        return $this->solutions()->where('problem_id',$problemId)->count() > 0;
+    }
+
+    /**
+     * @param Problem $problem
+     * @param string $answer
+     * @return bool
+     * @throws IncorrectAnswer
+     */
+    public function solve(Problem $problem, string $answer): bool
     {
         if($problem->check($answer)){
             $this->solved()->attach($problem);

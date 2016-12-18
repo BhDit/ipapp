@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Problem;
-use Illuminate\Http\Request;
 
 class ProblemsController extends Controller
 {
@@ -14,6 +13,8 @@ class ProblemsController extends Controller
 
     public function show(Problem $problem)
     {
-        return view('pages.problem',compact('problem'));
+        (\Auth::check()) ? $posted = \Auth::user()->postedSolutionTo($problem->id) : $posted = false;
+        $loggedin = \Auth::check();
+        return view('pages.problem', compact('problem', 'posted','loggedin'));
     }
 }

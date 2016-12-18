@@ -1,4 +1,4 @@
-@extends ('layouts.app-sidebar')
+@extends ('layouts.app-full')
 @section('content')
     <problem-list></problem-list>
 @endsection
