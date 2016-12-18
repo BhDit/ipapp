@@ -22,17 +22,17 @@
                 @if(Auth::check())
                     <li><a href="{{url('home')}}">Dashboard</a></li>
                 @endif
-                <li><a href="{{url('problems')}}">Problems</a></li>
-                <li><a href="">?Contact</a></li>
-                <li><a href="">?News</a></li>
+                <li class="{{ Request::is('problems') ? "active" : "" }}"><a href="{{url('problems')}}">Problems</a></li>
+                <li class="{{ Request::is('') ? "active" : "" }}"><a href="">?Contact</a></li>
+                <li class="{{ Request::is('') ? "active" : "" }}"><a href="">?News</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li class="{{ Request::is('login') ? "active" : "" }}"><a href="{{ url('/login') }}">Login</a></li>
+                    <li class="{{ Request::is('register') ? "active" : "" }}"><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
