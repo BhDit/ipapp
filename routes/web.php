@@ -12,7 +12,8 @@ Route::put('/profile',"ProfileController@update");
 /* PROBLEMS */
 Route::get('problem/{problem}','ProblemsController@show');
 Route::get('problems','ProblemsController@index');
-
+/*CONTACT*/
+Route::get('/contact', 'ContactController@index');
 /* XHR */
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');
