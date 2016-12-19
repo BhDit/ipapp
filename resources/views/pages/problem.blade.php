@@ -7,19 +7,11 @@
         <div class="col-md-12">
             <h3>{{$problem->title}}</h3>
             <p>{{$problem->description}}</p>
-            @if($loggedin)
-                @if(!$problem->isSolvedBy(auth()->user()))
-                    <answer-form problem-id="{{$problem->id}}" class="pull-right"></answer-form>
-                @else
-                    <div class="alert alert-info">You have already solved this problem: {{$problem->answer}}</div>
-                @endif
-            @endif
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-                    <solution-form problem-id="{{$problem->id}}"></solution-form>
-                <solutions-list :solutions="{{$problem->solutions}}" problem-id="{{$problem->id}}"></solutions-list>
+                <problem-component :problem="{{$problem}}" :user-problem-stats="{{json_encode($user_problem_stats)}}"></problem-component>
         </div>
     </div>
 @endsection

@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -5515,7 +5515,7 @@ button.close {
     margin: 0;
     width: 12px;
     height: 12px;
-    background-color: #404040; }
+    background-color: #fff; }
 
 .carousel-caption {
   position: absolute;

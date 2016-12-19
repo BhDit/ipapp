@@ -39,6 +39,7 @@
                         if(data.valid){
                             swal("Correct", "One done. More to go", "success");
                             this.success = true;
+                            this.$emit('solved');
                         } else {
                             swal("Whoops.", "Think about it more.", "error");
                         }
