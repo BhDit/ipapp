@@ -24,7 +24,7 @@
                 @endif
                 <li class="{{ Request::is('problems') ? "active" : "" }}"><a href="{{url('problems')}}">Problems</a></li>
                 <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{url('contact')}}">Contact</a></li>
-                <li class="{{ Request::is('news') ? "active" : "" }}"><a href="{{url('news')}}">?News</a></li>
+                <li class="{{ Request::is('news') ? "active" : "" }}"><a href="{{url('news')}}">News</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
