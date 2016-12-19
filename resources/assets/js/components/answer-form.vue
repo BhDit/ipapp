@@ -37,14 +37,16 @@
                     .then(data => {
                         //success
                         if(data.valid){
-                            swal("Correct", "One done. More to go", "success");
+                            swal("Correct", "Go on and share your solution with the world!", "success");
                             this.success = true;
                             this.$emit('solved');
                         } else {
                             swal("Whoops.", "Think about it more.", "error");
                         }
                     }).catch(error => {
-                        //list errors
+                        if(error == 'Too Many Attempts.'){
+                            swal('Chill boss','Try again in 1 minute','error');
+                        }
                     });
             }
         }
