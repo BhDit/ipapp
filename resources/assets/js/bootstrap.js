@@ -1,5 +1,7 @@
 
 window._ = require('lodash');
+window.pluralize = require('pluralize');
+
 String.prototype.getInitials = function(glue){
     if (typeof glue == "undefined") {
         var glue = true;
