@@ -9,6 +9,10 @@ use League\Flysystem\Exception;
 
 class XhrController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('throttle:5,1',['only'=>['checkAnswer']]);
+    }
     public function problems()
     {
         return Problem::with('solutions')->get();
