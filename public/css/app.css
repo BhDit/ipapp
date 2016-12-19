@@ -5765,7 +5765,10 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-
+#page-wrap {
+     width: 800px;
+     margin: 0 auto;
+}
 .content {
   background: white;
   padding: 50px; }
