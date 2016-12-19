@@ -16,6 +16,8 @@ Route::get('problems','ProblemsController@index');
 Route::get('/contact', 'ContactController@index');
 /*NEWS*/
 Route::get('/news', 'NewsController@index');
+/*thankyoupage*/
+Route::get('/thankyoupage', 'thankyoupage@index');
 /* XHR */
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');

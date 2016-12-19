@@ -5,5 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
-{
+{ public function index()
+    {
+        return view('pages.news');
+    }
+
+    
 }
