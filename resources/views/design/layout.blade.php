@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="{{ Request::is('/') ? "active" : "" }}"><a data-toggle="tab" href="/">Welcome</a></li>

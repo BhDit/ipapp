@@ -48,7 +48,7 @@ It's like typing messages back and forth - but the person replying is a computer
 	</div> 
 	
 	<div class="Column">
-	<h2><b><a href="http://www.bbc.com/news/technology-38216255">Facial scan app wants to get to know you<a><br>
+	<h2><b><a href="http://www.bbc.com/news/technology-38216255">Facial scan app wants to get to know you</a><br>
 	</h2></b><center>
 	<br><Br><img src="http://ahmedopeyemi.com/main/wp-content/uploads/2015/08/xcPiSQM.png"></center><br>
 	<h5>Augmented reality app Blippar has been updated to recognise faces as well as objects.
@@ -56,15 +56,14 @@ The app can now identify up to 70,000 public figures by looking at images, video
 	</h5>
 	</div>
 	<div class="Column">
+	
    </div>
 </div>
 	 
-	 <hr>
-	 <center><a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a>
-	 </center>
+
 @endsection
 @section('sidebar')
-    Anything in sidebar goes here
+  
 @endsection
 @section('end-scripts')
        

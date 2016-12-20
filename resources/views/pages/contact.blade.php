@@ -43,8 +43,7 @@ Ne poti gasi si pe
 <a target="_blank" title="follow us on google plus" href="https://plus.google.com/PLACEHOLDER"><img alt="follow me on google plus" src="https://c866088.ssl.cf3.rackcdn.com/assets/googleplus30x30.png" border=0></a>
 <a target="_blank" title="follow us on pinterest" href="http://www.pinterest.com/PLACEHOLDER"><img alt="follow me on pinterest" src="https://c866088.ssl.cf3.rackcdn.com/assets/pinterest30x30.png" border=0></a>
  <hr>
-	 <center><a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a>
-	 </center>@endsection
+@endsection
 @section('sidebar')
     
 @endsection

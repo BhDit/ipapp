@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <!-- Scripts -->
     <script>
@@ -37,7 +38,10 @@
         </div>
     </div>
 </div>
-
+<div id="footer">
+    <div id="colorfooter">
+    <p>&copy; All right reserved to Smart Ask team.  <a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a></p>
+    </div></div>
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" async></script>
 @yield('end-scripts','<script src="/js/app.js"></script>')
