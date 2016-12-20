@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header">
 
-            <!-- Collapsed Hamburger -->
+            <!-- Collapsed Hamburger --><img src="https://s23.postimg.org/58kg2xjvv/logo_Final.png" alt="No image">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>

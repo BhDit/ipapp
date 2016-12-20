@@ -1,11 +1,11 @@
 <template>
     <div>
-        <hr>
-        <ul class="no-padding no-style">
+        <ul class="no-padding no-style" v-if="local.solutions.length">
             <li v-for="solution in local.solutions">
                 <solution-item :solution="solution" />
             </li>
         </ul>
+        <div v-else>No solutions posted yet</div>
     </div>
 </template>
 <style>
@@ -25,7 +25,7 @@
                 }
             }
         },
-        mounted(){
+        beforeMount(){
             this.local.solutions = this.solutions;
             Bus.$on('new-solution',(solution) => {
                 this.local.solutions.push(solution);

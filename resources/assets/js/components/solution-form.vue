@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!posted">
+    <div>
         <hr>
         <form @submit.prevent="">
             <!-- Body -->
@@ -45,6 +45,7 @@
                 IPAPP.post('/xhr/problem/' + this.problemId + '/solution', this.form)
                     .then(response => {
                         Bus.$emit('new-solution', response);
+                        this.$emit('posted');
                         this.posted = true;
                     })
                     .catch()

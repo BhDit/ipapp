@@ -3,9 +3,19 @@
         <div class="row">
             <div class="col-md-12 problems-header">
                 <span style="font-size:24px">Problems</span>
-                <form class="form-inline level-form">
+                <form class="form-inline level-form" @submit.prevent="">
                     <div class="form-group">
-                        <label class="control-label vis">Level: </label>
+                        <input
+                                type="search"
+                                name="search"
+                                id="search"
+                                class="form-control"
+                                v-model="search"
+                                placeholder="Search"
+                                title="Search">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label vis">Difficulty: </label>
                         <select name="filter" id="filter" v-model="selectedLevel" class="form-control">
                             <option value="">All</option>
                             <option value="low">Low</option>
@@ -39,9 +49,10 @@
         display: flex;
         justify-content: space-between;
     }
-    @media (max-width:400px){
-        .problems-header{
-            flex-direction:column;
+
+    @media (max-width: 400px) {
+        .problems-header {
+            flex-direction: column;
         }
     }
 </style>
@@ -58,6 +69,7 @@
             return {
                 problems: [],
                 selectedLevel: '',
+                search:'',
             }
         },
         beforeMount(){
@@ -65,10 +77,16 @@
         },
         computed: {
             filteredProblems() {
-                if (this.selectedLevel == '') {
-                    return this.problems
+                let problems = this.problems;
+                if(this.search.trim() != ''){
+                    problems =  _.filter(problems, (problem)=>{
+                        return problem.title.search(this.search) > -1
+                    })
                 }
-                return _.filter(this.problems, {'level': this.selectedLevel})
+                if (this.selectedLevel != '') {
+                    problems =  _.filter(problems, {'level': this.selectedLevel})
+                }
+                return problems
             }
         },
         methods: {

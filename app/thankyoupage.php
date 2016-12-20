@@ -4,11 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class thankyoupage extends Model
 { public function index()
     {
-        return view('pages.news');
+        return view('pages.thankyoupage');
+		 
     }
 
-    
+   
 }
+
