@@ -28,7 +28,7 @@ class CreateSolutionsTable extends Migration
             $table->timestamps();
 
             $table->unique(['id','problem_id','user_id'],'users_solution');
-            $table->primary(['id','problem_id','user_id']);
+            
         });
     }
 
