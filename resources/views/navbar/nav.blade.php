@@ -1,10 +1,11 @@
+<img  src="{{URL::asset('images\banner.jpg')}}" alt="">
+
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-
-            <!-- Collapsed Hamburger --><img src="https://s23.postimg.org/58kg2xjvv/logo_Final.png" alt="No image">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#app-navbar-collapse">
+
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

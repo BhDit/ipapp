@@ -379,9 +379,13 @@ li a:hover:not(.active) {
     transition: 0s
 }
 #footer{
-    position:relative;
-    bottom:10px;
-    background-color:#ccffcc;
+    position: static;
+    bottom:30px;
+    background-color:#42a859;
     width:100%;
     text-align:center}
+#colorfooter
+{
+    color: #a2d23c;
+}
 
