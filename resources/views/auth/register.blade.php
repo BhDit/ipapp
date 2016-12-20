@@ -84,9 +84,13 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div><hr>
+	 <center><a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a>
+	 </center>
 @endsection
 
 @section('head-scripts')
     <script src='https://www.google.com/recaptcha/api.js'></script>
+	
+	
 @endsection
