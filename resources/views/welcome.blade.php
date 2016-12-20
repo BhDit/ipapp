@@ -89,7 +89,7 @@
 </div>
 	
 	 <a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a>
-    
+
 @endsection
 <!--
 @section('css')
