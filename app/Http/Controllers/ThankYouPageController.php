@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\thankyoupage;
 
-class ThankYouPageController extends Controller
+class thankyoupageController extends Controller
 {
     public function index()
     {
