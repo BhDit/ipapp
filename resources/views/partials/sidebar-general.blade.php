@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="sidebar-nav-fixed pull-right affix">
-                    <div class="well">
+                    <div class="well" style="background-color: #CCFFCC;">
                         <ul class="nav">
                             <li>
                                 <br>

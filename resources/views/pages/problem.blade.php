@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
                 <problem-component :problem="{{$problem}}" :user-problem-stats="{{json_encode($user_problem_stats)}}"></problem-component>
-        </div>
+        </div>prof
     </div>
 @endsection
 @section('sidebar')
