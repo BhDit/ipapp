@@ -20,7 +20,7 @@
             'csrfToken' => csrf_token(),
             'user' => auth()->user() ?? null,
             'userId' => auth()->user()->id ?? null,
-            'userSolved' => (auth()->user())?auth()->user()->solved->pluck('id')->toArray():null,
+            'userSolved' => (auth()->user()) ? auth()->user()->solved->pluck('id')->toArray() : null,
             'usesApi' => false,
         ]); ?>
     </script>
@@ -34,14 +34,17 @@
     @include('navbar.nav')
     <div class="container content">
         <div class="row">
-           @yield('structure')
+            @yield('structure')
         </div>
     </div>
 </div>
-<div id="footer">
+{{--<div id="footer">
     <div id="colorfooter">
-    <p>&copy; All right reserved to Smart Ask team.  <a href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy Policy</a></p>
-    </div></div>
+        <p>&copy; All right reserved to Smart Ask team. <a style="color:white"
+                                                           href="https://docs.google.com/document/d/1bLAzkcCbQLpd1Jjb90k1EPG1pWY414T_VeoYR8ajbsM/edit?usp=sharing ">Privacy
+                Policy</a></p>
+    </div>
+</div>--}}
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" async></script>
 @yield('end-scripts','<script src="/js/app.js"></script>')

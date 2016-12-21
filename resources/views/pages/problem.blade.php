@@ -4,19 +4,27 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-md-12">
-            <h3>{{$problem->title}}</h3>
-            <p>{{$problem->description}}</p>
+        <div class="col-md-12 problem">
+            <h3 class="problem-title">{{$problem->title}}</h3>
+            <p class="problem-description">{{$problem->description}}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-                <problem-component :problem="{{$problem}}" :user-problem-stats="{{json_encode($user_problem_stats)}}"></problem-component>
-        </div>prof
+            @if($loggedin)
+                <problem-component :problem="{{$problem}}"
+                                   :user-problem-stats="{{json_encode($user_problem_stats)}}"></problem-component>
+            @endif
+        </div>
     </div>
 @endsection
-@section('sidebar')
-    Anything in sidebar goes here
+@section('css')
+    .problem {
+    color: #000;
+    }
+    .problem .problem-title{
+    margin-bottom:30px;
+    }
 @endsection
 @section('end-scripts')
     <script src="{{asset('js/problem-page.js')}}"></script>

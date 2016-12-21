@@ -1,5 +1,3 @@
-<img  src="{{URL::asset('images\banner.jpg')}}" alt="">
-
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
