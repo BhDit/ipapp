@@ -8,6 +8,7 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "timeline";
 .content{
   background: white;
   padding:50px;
@@ -20,4 +21,38 @@ h1,h2,h3,h4,h5,h6{
 }
 .no-style{
   list-style:none;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #003300;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
 }

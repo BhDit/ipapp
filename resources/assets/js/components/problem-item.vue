@@ -1,13 +1,13 @@
 <template>
     <div class="problem">
-        <span class="problem-data">
-            <span class="id">
+        <div class="problem-data">
+            <div class="id">
             {{problem.id}}.
-            </span>
-            <span class="title">
+            </div>
+            <div class="title">
                 <a :href="'/problem/' + problem.id">{{problem.title}}</a>
-            </span>
-        </span>
+            </div>
+        </div>
         <span class="problem-details">
             <span class="level">
                 <div class="progress">
@@ -48,6 +48,9 @@
             flex-direction: column;
         }
         .problem-data {
+            display: flex;
+            min-width: 350px;
+            align-items:center;
             flex:1;
             .id {
                 font-size: 20px;
@@ -91,14 +94,4 @@
             this.users = window.pluralize('user',this.problem.solvedBy,true);
         }
     }
-
-
-
-
-
-
-
-
-
-
 </script>

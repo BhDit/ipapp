@@ -20,7 +20,6 @@
             'csrfToken' => csrf_token(),
             'user' => auth()->user() ?? null,
             'userId' => auth()->user()->id ?? null,
-            'userSolved' => (auth()->user()) ? auth()->user()->solved->pluck('id')->toArray() : null,
             'usesApi' => false,
         ]); ?>
     </script>

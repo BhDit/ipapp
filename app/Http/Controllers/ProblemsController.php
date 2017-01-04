@@ -13,9 +13,9 @@ class ProblemsController extends Controller
         return view('pages.problems');
     }
 
-    public function show(Problem $problem, Request $request)
+    public function show($id, Request $request)
     {
-        $problem->load('solutions');
+        $problem = Problem::with('solutions')->find($id);
         $loggedin = auth()->check();
         $user_problem_stats = [
             "solved" => ($loggedin) ? $problem->isSolvedBy($request->user()) : false,

@@ -21,7 +21,8 @@
                 @if(Auth::check())
                     <li><a href="{{url('home')}}">Dashboard</a></li>
                 @endif
-                <li class="{{ Request::is('problems') ? "active" : "" }}"><a href="{{url('problems')}}">Problems</a></li>
+                <li class="{{ Request::is('problems') ? "active" : "" }}"><a href="{{url('problems')}}">Problems</a>
+                </li>
                 <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{url('contact')}}">Contact</a></li>
                 {{--<li class="{{ Request::is('news') ? "active" : "" }}"><a href="{{url('news')}}">News</a></li>--}}
             </ul>
@@ -31,12 +32,23 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li class="{{ Request::is('login') ? "active" : "" }}"><a href="{{ url('/login') }}">Login</a></li>
-                    <li class="{{ Request::is('register') ? "active" : "" }}"><a href="{{ url('/register') }}">Register</a></li>
+                    <li class="{{ Request::is('register') ? "active" : "" }}"><a
+                                href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">
-                            @{{ipapp.user.name}} <span class="caret"></span>
+                            <div style="float: left;">
+                                <div style="float: left;line-height: 10px;">
+                                    @{{ipapp.user.name}}
+                                </div>
+                                <br>
+                                <div style="float: right;font-size: 14px;margin-top:-10px">
+                                    <span class="label label-success">9 points</span>
+                                </div>
+                            </div>
+                            <span class="caret" style="margin-left: 10px;"></span></a>
+
                         </a>
 
                         <ul class="dropdown-menu" role="menu">

@@ -14,6 +14,10 @@
             @if($loggedin)
                 <problem-component :problem="{{$problem}}"
                                    :user-problem-stats="{{json_encode($user_problem_stats)}}"></problem-component>
+            @else
+                <div class="alert alert-info">
+                    You have to be signed in to answer.
+                </div>
             @endif
         </div>
     </div>

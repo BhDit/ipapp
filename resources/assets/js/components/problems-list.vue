@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-md-12 problems-header">
+            <div class="col-sm-12 problems-header">
                 <span style="font-size:24px">Problems</span>
                 <form class="form-inline level-form" @submit.prevent="">
                     <div class="form-group">

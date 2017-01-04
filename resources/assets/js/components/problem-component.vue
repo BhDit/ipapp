@@ -34,17 +34,17 @@
         </span>
                 <!--If not solved problem-->
                 <div v-else>
-                    <p>
-                        You can post the solution and see other's only if you solve the problem.
-                    </p>
+                    <br>
                     <div class="alert alert-warning">
                         <button type="button" class="btn btn-danger pull-right">Cheat</button>
                         <strong>You can Cheat!</strong> but loose 5 points.
                         <br>
-                        PS: There is a chance the app won't catch you.
+                        <strong>PS: </strong>There is a chance the app won't catch you.
                         <div class="clearfix"></div>
                     </div>
-
+                    <p>
+                        You can post the solution and see other's only if you solve the problem.
+                    </p>
                 </div>
             </div>
         </div>
