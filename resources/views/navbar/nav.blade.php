@@ -44,7 +44,7 @@
                                 </div>
                                 <br>
                                 <div style="float: right;font-size: 14px;margin-top:-10px">
-                                    <span class="label label-success">9 points</span>
+                                    <span class="label label-success">@{{ipapp.user.points}} points</span>
                                 </div>
                             </div>
                             <span class="caret" style="margin-left: 10px;"></span></a>

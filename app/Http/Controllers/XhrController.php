@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserSolvedProblem;
 use App\Exceptions\Problem\IncorrectAnswer;
 use App\Problem;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class XhrController extends Controller
     }
     public function problems()
     {
-        return Problem::with('solutions')->get();
+        return Problem::all();
     }
 
     public function checkAnswer(Problem $problem, Request $request)
@@ -43,10 +44,17 @@ class XhrController extends Controller
                 'body' => $request->input('body'),
                 'user_id' => $request->user()->id
             ]);
+            event(new UserSolvedProblem($request->user(),$problem));
+
         }catch (\Exception $e){
             return response()->json(['body' => ['You have already submitted a solution']],401);
         }
 
         return $solution->load('owner');
+    }
+
+    public function getSolutions(Problem $problem)
+    {
+        return $problem->solutions;
     }
 }

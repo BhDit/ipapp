@@ -47,5 +47,10 @@
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" async></script>
 @yield('end-scripts','<script src="/js/app.js"></script>')
+<script>
+    $(document).ready(function(){
+        setTimeout(()=>{$('[data-toggle="tooltip"]').tooltip(); console.log('nana');},500);
+    });
+</script>
 </body>
 </html>

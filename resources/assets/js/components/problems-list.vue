@@ -92,7 +92,7 @@
         methods: {
             initialize(){
                 this.$http.get('/xhr/problems').then(data => {
-                    this.problems = data.body;
+                    this.problems = _.sortBy(data.body,'id');
                 })
             }
         }

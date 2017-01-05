@@ -11,7 +11,7 @@
                     > </answer-form>
                     <div v-else
                          class="alert alert-info"
-                    >You have solved this problem
+                    ><span class="glyphicon glyphicon-info-sign"></span> You have solved this problem
                     </div>
                 </span>
             </div>
@@ -81,6 +81,11 @@
             this.solved = this.userProblemStats.solved;
             this.cheated = this.userProblemStats.cheated;
             this.posted = this.userProblemStats.posted;
+
+            this.$http.get('/problem/'+this.problem.id+'/solutions')
+                .then( response =>{
+                    this.problem.solutions = response.data;
+                }).catch()
         },
     }
 </script>

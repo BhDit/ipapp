@@ -2,10 +2,13 @@
     <div class="problem">
         <div class="problem-data">
             <div class="id">
-            {{problem.id}}.
+                {{problem.id}}.
             </div>
             <div class="title">
                 <a :href="'/problem/' + problem.id">{{problem.title}}</a>
+                <span v-if="problem.userSolved" style="color:green" data-toggle="tooltip" title="You have solved this">
+                     <i class="glyphicon glyphicon-check"></i>
+                </span>
             </div>
         </div>
         <span class="problem-details">
@@ -30,7 +33,8 @@
                 </div>
             </span>
             <span class="solvedby">
-                Solved by {{users}}
+                Solved by <span v-if="problem.userSolved"><span
+                    style="color:green;font-weight:bold">you</span> and </span> {{users}}
             </span>
         </span>
     </div>
@@ -50,8 +54,8 @@
         .problem-data {
             display: flex;
             min-width: 350px;
-            align-items:center;
-            flex:1;
+            align-items: center;
+            flex: 1;
             .id {
                 font-size: 20px;
                 margin-right: 5px;
@@ -63,9 +67,9 @@
         }
         .problem-details {
             display: flex;
-            justify-content:flex-end;
-            align-items:flex-end;
-            flex:1;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex: 1;
             .level {
                 margin: 0 auto;
                 width: 100px;
@@ -73,8 +77,8 @@
                     margin: 0;
                 }
             }
-            .solvedby{
-                width:130px;
+            .solvedby {
+                width: 170px;
                 text-align: right;
             }
         }
@@ -86,12 +90,13 @@
     export default{
         props: ['problem'],
         data(){
-            return{
+            return {
                 users: '',
             }
         },
         beforeMount(){
-            this.users = window.pluralize('user',this.problem.solvedBy,true);
+            this.users = window.pluralize('user', this.problem.solvedBy, true);
+            console.log(this.problem);
         }
     }
 </script>

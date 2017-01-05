@@ -15,7 +15,7 @@ class Problem extends Model
     /**
      * @var array
      */
-    protected $appends = ['solvedBy'];
+    protected $appends = ['solvedBy','userSolved'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -63,9 +63,24 @@ class Problem extends Model
         return $this->solvers()->where('id',$user)->count() > 0;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSolvedByAttribute()
     {
         return $this->solvers()->count();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getUserSolvedAttribute()
+    {
+        if(auth()->check()){
+            return !! $this->isSolvedBy(request()->user());
+        }
+
+        return false;
     }
 
 }
