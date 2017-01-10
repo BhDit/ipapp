@@ -14,6 +14,6 @@ require('./Form');
 require('./FormErrors');
 
 /**
- * Add additional HTTP / form helpers to the Hype object.
+ * Add additional HTTP / form helpers to the IPAPP object.
  */
 $.extend(IPAPP, require('./http'));

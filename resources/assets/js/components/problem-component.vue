@@ -19,24 +19,24 @@
         <div class="row">
             <div class="col-md-12">
                 <!--Solution Form-->
-                <span v-if="!cheated && solved && !posted">
+                <span v-if="solved && !posted">
                     <solution-form
                             :problem-id="problem.id"
                             @posted="posted=true"
                     > </solution-form>
                 </span>
                 <!--Solutions list-->
-                <span v-if="solved || cheated">
-            <hr>
-            <solutions-list :solutions="problem.solutions"
-                            :problem-id="problem.id">
-            </solutions-list>
-        </span>
+                <span v-if="solved">
+                    <hr>
+                    <solutions-list :solutions="problem.solutions"
+                                    :problem-id="problem.id">
+                    </solutions-list>
+                </span>
                 <!--If not solved problem-->
                 <div v-else>
                     <br>
                     <div class="alert alert-warning">
-                        <button type="button" class="btn btn-danger pull-right">Cheat</button>
+                        <button type="button" class="btn btn-danger pull-right" @click="cheat">Cheat</button>
                         <strong>You can Cheat!</strong> but loose 5 points.
                         <br>
                         <strong>PS: </strong>There is a chance the app won't catch you.
@@ -53,7 +53,7 @@
 <style>
 
 </style>
-<script lang="javascript">
+<script lang="babel">
     import answerForm from './answer-form.vue'
     import solutionForm from './solution-form.vue'
     import solutionsList from './solutions-list.vue'
@@ -73,19 +73,41 @@
         data(){
             return {
                 posted: false,
-                cheated: false,
                 solved: false
             }
         },
         beforeMount(){
             this.solved = this.userProblemStats.solved;
-            this.cheated = this.userProblemStats.cheated;
             this.posted = this.userProblemStats.posted;
 
-            this.$http.get('/problem/'+this.problem.id+'/solutions')
-                .then( response =>{
+            this.$http.get('/xhr/problem/' + this.problem.id + '/solutions')
+                .then(response => {
                     this.problem.solutions = response.data;
                 }).catch()
         },
+        methods: {
+            cheat(){
+                console.log(this);
+                this.$http.post('/xhr/problem/' + this.problem.id + '/cheat')
+                    .then(data  => {
+                        data = data.body;
+                        console.log(data, data.caught == true, data.caught === true);
+                        if (data.caught) {
+                            swal("Yikes!", "You lost some points. You should learn from this.", "info");
+                            Bus.$emit('lost-points', data.lostPoints);
+                        } else if (! data.caught) {
+                            swal("Congrats!", "You were lucky .. this time", "info")
+                        }
+                        this.solved = true;
+                    }).catch(error => {
+                        console.log(error);
+                        if(error.status == 401){
+                            swal('Whoops.',error.body,'warning');
+                        } else {
+                            swal('Whoops.','It looks like we encountered a problem. You could try to refresh the page','error');
+                        }
+                    })
+            }
+        }
     }
 </script>

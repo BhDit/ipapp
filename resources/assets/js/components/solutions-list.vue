@@ -30,6 +30,10 @@
             Bus.$on('new-solution',(solution) => {
                 this.local.solutions.push(solution);
             });
-        }}
+        },
+        mounted(){
+
+        }
+    }
 
 </script>

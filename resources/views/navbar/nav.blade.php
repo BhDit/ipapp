@@ -40,11 +40,11 @@
                            aria-expanded="false">
                             <div style="float: left;">
                                 <div style="float: left;line-height: 10px;">
-                                    @{{ipapp.user.name}}
+                                    @{{user.name}}
                                 </div>
                                 <br>
                                 <div style="float: right;font-size: 14px;margin-top:-10px">
-                                    <span class="label label-success">@{{ipapp.user.points}} points</span>
+                                    <span class="label label-success">@{{user.points}} points</span>
                                 </div>
                             </div>
                             <span class="caret" style="margin-left: 10px;"></span></a>

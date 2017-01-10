@@ -49,7 +49,7 @@
 @yield('end-scripts','<script src="/js/app.js"></script>')
 <script>
     $(document).ready(function(){
-        setTimeout(()=>{$('[data-toggle="tooltip"]').tooltip(); console.log('nana');},500);
+        setTimeout(()=>{$('[data-toggle="tooltip"]').tooltip();},500);
     });
 </script>
 </body>

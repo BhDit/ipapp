@@ -1,7 +1,7 @@
 module.exports = {
     computed: {
         /**
-         * Access the global Hype object.
+         * Access the global IPAPP object.
          */
         ipapp() {
             return window.IPAPP;

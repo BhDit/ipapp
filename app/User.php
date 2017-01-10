@@ -2,7 +2,8 @@
 
 namespace App;
 
-use App\Events\ProblemSolved;
+use App\Events\UserLostPoints;
+use App\Events\UserSolvedProblem;
 use App\Exceptions\Problem\IncorrectAnswer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,6 +28,10 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    protected $casts = [
+        'points' => 'int'
     ];
 
     /**
@@ -81,10 +86,41 @@ class User extends Authenticatable
     {
         if($problem->check($answer)){
             $this->solved()->attach($problem);
-            event(new ProblemSolved($this,$problem));
+            event(new UserSolvedProblem($this,$problem));
             return true;
         }
         throw new IncorrectAnswer();
+    }
+
+    public function addPoints(int $points)
+    {
+        $this->points += $points;
+        return $this->save();
+    }
+
+    public function subtractPoints(int $points)
+    {
+        $this->points -= $points;
+        return $this->save();
+    }
+
+    /**
+     * Cheat on problems.
+     * @param Problem $problem
+     * @return int $caught
+     */
+    public function cheatOn(Problem $problem)
+    {
+        $faker = \Faker\Factory::create();
+
+        $this->solved()->attach($problem);
+        $caught = $faker->boolean($chanceOfGettingTrue = 90);
+        if($caught){
+            $this->subtractPoints(\IPAPP::$cheatPoints);
+            event(new UserLostPoints('cheated',\IPAPP::$cheatPoints));
+        }
+
+        return $caught;
     }
 
 }

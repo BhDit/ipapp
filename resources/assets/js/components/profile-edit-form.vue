@@ -40,7 +40,7 @@
         </form>
     </div>
 </template>
-<script lang="javascript">
+<script lang="babel">
     export default{
         data() {
             return {
@@ -56,15 +56,12 @@
         },
         methods: {
             submit() {
-                IPAPP.put('/profile', this.form).then( userData => {
-                    swal('Congrats!', "Your profile data was updated.", 'success');
-//                    Bus.$emit('userDataUpdated',data)
-                    IPAPP.user = userData
-                }).catch(() => {
-
-                })
+                this.ipapp.put('/profile', this.form)
+                    .then( data => {
+                        swal("Congrats!", "Your profile data was updated.", "success");
+                        Bus.$emit('userDataUpdated',data);
+                    }).catch()
             },
-
         }
     }
 </script>

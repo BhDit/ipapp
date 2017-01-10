@@ -31,7 +31,7 @@ class XhrController extends Controller
             $valid = false;
         }
 
-        return response()->json(['valid' => $valid], 200);
+        return response()->json(['valid' => $valid,'points' => (int) $problem->score], 200);
     }
 
     public function storeSolution(Problem $problem, Request $request)
@@ -57,4 +57,19 @@ class XhrController extends Controller
     {
         return $problem->solutions;
     }
+
+    public function cheat(Problem $problem,Request $request)
+    {
+        if($request->user()->points < \IPAPP::$cheatPoints){
+            return response()->json('Not enough points',401);
+        }
+        try{
+            $caught = $request->user()->cheatOn($problem);
+        }catch(\Exception $e){
+            return response()->json('Whoops.. I made a bubu',500);
+        }
+
+        return response()->json(['caught' => $caught,'lostPoints' => ($caught)?\IPAPP::$cheatPoints:0]);
+    }
+
 }

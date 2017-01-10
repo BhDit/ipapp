@@ -56,7 +56,6 @@ Vue.http.interceptors.push((request, next) => {
     next();
 });
 
-require('./forms/bootstrap');
 /**
  * Load Vue Global Mixin.
  */
@@ -66,7 +65,7 @@ Vue.mixin(require('./mixin'));
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-
+require('./forms/bootstrap');
 require('./components/bootstrap');
 
 // import Echo from "laravel-echo"

@@ -13,5 +13,21 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 window.app = new Vue({
-    mixins: [require('./ipapp')]
+    mixins: [require('./ipapp')],
+    data: {
+        user: window.IPAPP.user,
+    },
+    created(){
+        let self = this;
+        Bus.$on('received-points',function (points) {
+            window.IPAPP.user.points += points;
+        });
+        Bus.$on('lost-points',function (points) {
+            window.IPAPP.user.points -= points;
+        });
+        Bus.$on('userDataUpdated', userData =>{
+            this.user = userData;
+            window.IPAPP.user = userData;
+        });
+    },
 });

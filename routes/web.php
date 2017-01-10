@@ -3,6 +3,7 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@index');
 Route::get('/', 'WelcomeController@index');
 
 /* PROFILE */
@@ -16,12 +17,11 @@ Route::get('problems','ProblemsController@index');
 Route::get('/contact', 'ContactController@index');
 /*NEWS*/
 Route::get('/news', 'NewsController@index');
-/*THANK YOU PAGE*/
-Route::get('/thankyoupage', 'thankyoupageController@index');
 /* XHR */
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');
     Route::post('check-answer/{problem}','XhrController@checkAnswer');
     Route::post('problem/{problem}/solution','XhrController@storeSolution');
     Route::get('problem/{problem}/solutions','XhrController@getSolutions');
+    Route::post('problem/{problem}/cheat','XhrController@cheat');
 });

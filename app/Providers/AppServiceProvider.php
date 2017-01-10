@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (! class_exists('IPAPP')) {
+            class_alias('App\IPAPP', 'IPAPP');
+        }
     }
 }

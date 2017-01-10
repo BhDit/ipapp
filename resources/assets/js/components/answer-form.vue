@@ -40,6 +40,7 @@
                             swal("Correct", "Go on and share your solution with the world!", "success");
                             this.success = true;
                             this.$emit('solved');
+                            Bus.$emit('received-points',data.points);
                         } else {
                             swal("Whoops.", "Think about it more.", "error");
                         }

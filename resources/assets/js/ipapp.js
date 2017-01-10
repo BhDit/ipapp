@@ -73,9 +73,6 @@ module.exports = {
                     $('#feedback-subject').focus();
                 }, 500);
             });
-            Bus.$on('userDataUpdated', userData =>{
-                    this.ipapp.user = userData;
-            });
         },
         /**
          * Load the data for an authenticated user.
