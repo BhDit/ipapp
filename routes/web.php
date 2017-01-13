@@ -6,18 +6,25 @@ Route::get('/home', 'HomeController@index');
 Route::get('/dashboard', 'HomeController@index');
 Route::get('/', 'WelcomeController@index');
 
-/* PROFILE */
+// PROFILE
 Route::get('/profile/edit',"ProfileController@edit");
 Route::put('/profile',"ProfileController@update");
 
-/* PROBLEMS */
+// Notifications
+Route::get('/notifications/recent', 'NotificationController@recent');
+Route::put('/notifications/read', 'NotificationController@markAsRead');
+
+// PROBLEMS
 Route::get('problem/{problem}','ProblemsController@show');
 Route::get('problems','ProblemsController@index');
-/*CONTACT*/
+
+//CONTACT
 Route::get('/contact', 'ContactController@index');
-/*NEWS*/
+
+//NEWS
 Route::get('/news', 'NewsController@index');
-/* XHR */
+
+// XHR
 Route::group(['prefix' => 'xhr'],function(){
     Route::get('problems','XhrController@problems');
     Route::post('check-answer/{problem}','XhrController@checkAnswer');

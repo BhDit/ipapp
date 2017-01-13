@@ -58,7 +58,8 @@ class PointsReceivedFromProblemSolving extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'title' => "Points Received +{$this->problem->score}",
+            'body' => "You have received points for solving <strong>{$this->problem->title}</strong>"
         ];
     }
 }

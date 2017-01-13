@@ -52,7 +52,7 @@
                             $('pre code').each(function (i, block) {
                                 hljs.highlightBlock(block);
                             });
-                        },2000);
+                        },500);
                     }).catch()
             }
         }

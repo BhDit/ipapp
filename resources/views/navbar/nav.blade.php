@@ -35,6 +35,14 @@
                     <li class="{{ Request::is('register') ? "active" : "" }}"><a
                                 href="{{ url('/register') }}">Register</a></li>
                 @else
+                    <li>
+                        <a @click="showNotifications" class="has-activity-indicator has-pointer" style="padding-bottom:0;">
+                        <div class="navbar-icon">
+                            <i class="activity-indicator" v-if="hasUnreadNotifications || hasUnreadAnnouncements"></i>
+                            <i class="icon glyphicon glyphicon-bell"></i>
+                        </div>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">

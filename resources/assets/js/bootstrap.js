@@ -1,6 +1,7 @@
 
 window._ = require('lodash');
 window.pluralize = require('pluralize');
+window.moment = require('moment');
 
 String.prototype.getInitials = function(glue){
     if (typeof glue == "undefined") {
@@ -60,6 +61,12 @@ Vue.http.interceptors.push((request, next) => {
  * Load Vue Global Mixin.
  */
 Vue.mixin(require('./mixin'));
+
+/**
+ * Define the Vue filters.
+ */
+require('./filters');
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

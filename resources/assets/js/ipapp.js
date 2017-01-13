@@ -78,7 +78,10 @@ module.exports = {
          * Load the data for an authenticated user.
          */
         loadDataForAuthenticatedUser() {
-            // this.getNotifications();
+            this.getNotifications();
+            setInterval(()=>{
+                this.getNotifications();
+            }, 10000);
         },
 
 
@@ -142,12 +145,13 @@ module.exports = {
             }
 
             this.$http.put('/notifications/read', {
-                notifications: _.pluck(this.notifications.notifications, 'id')
+                notifications: _.map(this.notifications.notifications, 'id')
             });
 
             _.each(this.notifications.notifications, notification => {
-                notification.read = 1;
+                notification.read_at = new Date();
             });
+
         },
 
         /*
@@ -191,8 +195,16 @@ module.exports = {
         logout(){
             document.getElementById('logout-form').submit();
         },
-    },
 
+        /**
+         * Show the user's notifications.
+         */
+        showNotifications() {
+            $("#modal-notifications").modal('show');
+
+            this.markNotificationsAsRead();
+        },
+    },
 
     computed: {
         /**
@@ -221,7 +233,7 @@ module.exports = {
         hasUnreadNotifications() {
             if (this.notifications) {
                 return _.filter(this.notifications.notifications, notification => {
-                        return !notification.read;
+                        return !notification.read_at;
                     }).length > 0;
             }
 

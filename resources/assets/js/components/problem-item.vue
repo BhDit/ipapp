@@ -85,7 +85,7 @@
 
     }
 </style>
-<script lang="javascript">
+<script lang="babel">
 
     export default{
         props: ['problem'],
@@ -96,7 +96,6 @@
         },
         beforeMount(){
             this.users = window.pluralize('user', this.problem.solvedBy, true);
-            console.log(this.problem);
         }
     }
 </script>

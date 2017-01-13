@@ -11,9 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link href="/css/app.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.IPAPP = <?= json_encode([
@@ -36,6 +36,11 @@
             @yield('structure')
         </div>
     </div>
+    <ipapp-notifications
+            :notifications="notifications"
+            :has-unread-announcements="hasUnreadAnnouncements"
+            :loading-notifications="loadingNotifications"
+    ></ipapp-notifications>
 </div>
 {{--<div id="footer">
     <div id="colorfooter">
