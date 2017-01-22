@@ -2,7 +2,13 @@
     <div>
         <div class="row">
             <div class="col-sm-12 problems-header">
-                <span style="font-size:24px">Problems</span>
+                <span style="font-size:24px">Problems
+                <span class="add-problem" v-if="authority">
+                    <a class="btn btn-primary btn-sm" data-toggle="tooltip" title="Add new Problem" @click="showNewProblemForm">
+                        <i class="icon glyphicon glyphicon-plus"></i> Add Problem
+                    </a>
+                </span>
+                </span>
                 <form class="form-inline level-form" @submit.prevent="">
                     <div class="form-group">
                         <input
@@ -65,6 +71,7 @@
         components: {
             'problem': problemItem
         },
+        props:['authority'],
         data(){
             return {
                 problems: [],
@@ -73,6 +80,9 @@
             }
         },
         beforeMount(){
+            Bus.$on('new-problem-inserted',(data)=>{
+               this.problems.push(data);
+            });
             this.initialize();
         },
         computed: {
@@ -94,8 +104,11 @@
                 this.$http.get('/xhr/problems').then(data => {
                     this.problems = _.sortBy(data.body,'id');
                 })
+            },
+            showNewProblemForm(){
+                Bus.$emit('showNewProblemForm');
             }
-        }
+        },
 
     }
 </script>

@@ -73,13 +73,19 @@ module.exports = {
                     $('#feedback-subject').focus();
                 }, 500);
             });
+            Bus.$on('showNewProblemForm', () => {
+                $('#new-problem-modal').modal('show');
+                setTimeout(() => {
+                    $('#npm-title').focus();
+                }, 500);
+            });
         },
         /**
          * Load the data for an authenticated user.
          */
         loadDataForAuthenticatedUser() {
             this.getNotifications();
-            setInterval(()=>{
+            setInterval(() => {
                 this.getNotifications();
             }, 10000);
         },
@@ -105,7 +111,7 @@ module.exports = {
 
         /**
          * Refresh the current API token.
-            refreshApiToken() {
+         refreshApiToken() {
                 this.lastRefreshedApiTokenAt = moment();
 
                 this.$http.put('/ipapp/token');
@@ -177,6 +183,10 @@ module.exports = {
                 });
         },
 
+        submitNewProblem(){
+
+        },
+
         /**
          * Show an alert informing the user their support request was sent.
          */
@@ -187,7 +197,7 @@ module.exports = {
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000,
-                onOpen: ()=>{
+                onOpen: () => {
                     console.log('reached');
                 }
             });

@@ -123,4 +123,9 @@ class User extends Authenticatable
         return $caught;
     }
 
+    public function isDeveloper()
+    {
+        return \IPAPP::developer($this->email);
+    }
+
 }

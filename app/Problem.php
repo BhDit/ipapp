@@ -12,6 +12,14 @@ class Problem extends Model
      * @var array
      */
     protected $hidden = ['answer'];
+
+    protected $fillable = [
+        'title',
+        'score',
+        'answer',
+        'description',
+        'level',
+    ];
     /**
      * @var array
      */
