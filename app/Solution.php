@@ -2,19 +2,22 @@
 
 namespace App;
 
+use App\Ipapp\Traits\LikeToggle;
 use Carbon\Carbon;
 use Conner\Likeable\LikeableTrait as Likeable;
 use Illuminate\Database\Eloquent\Model;
 
 class Solution extends Model
 {
-    use Likeable;
+    use Likeable,LikeToggle;
 
     protected $table = 'solutions';
 
-    protected $with = ['owner'];
+    protected $with = ['owner','likes'];
 
     protected $fillable = ['body','user_id'];
+
+    protected $appends = ['liked','likeCount'];
 
     public function problem()
     {
