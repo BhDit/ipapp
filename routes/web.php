@@ -21,7 +21,7 @@ Route::put('/notifications/read', 'NotificationController@markAsRead');
 // PROBLEMS
 Route::get('problem/{problem}','ProblemsController@show');
 Route::get('problems','ProblemsController@index');
-
+Route::post('problem','ProblemsController@store');
 //CONTACT
 Route::get('/contact', 'ContactController@index');
 

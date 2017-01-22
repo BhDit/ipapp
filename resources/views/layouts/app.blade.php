@@ -18,8 +18,8 @@
     <script>
         window.IPAPP = <?= json_encode([
             'csrfToken' => csrf_token(),
-            'user' => auth()->user() ?? null,
-            'userId' => auth()->user()->id ?? null,
+            'user' => $user = auth()->user() ?? null,
+            'userId' => $user->id ?? null,
             'usesApi' => false,
         ]); ?>
     </script>
@@ -36,11 +36,13 @@
             @yield('structure')
         </div>
     </div>
-    <ipapp-notifications
-            :notifications="notifications"
-            :has-unread-announcements="hasUnreadAnnouncements"
-            :loading-notifications="loadingNotifications"
-    ></ipapp-notifications>
+    @if(Auth::check())
+        <ipapp-notifications
+                :notifications="notifications"
+                :has-unread-announcements="hasUnreadAnnouncements"
+                :loading-notifications="loadingNotifications"
+        ></ipapp-notifications>
+    @endif
 </div>
 {{--<div id="footer">
     <div id="colorfooter">
@@ -53,8 +55,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" async></script>
 @yield('end-scripts','<script src="/js/app.js"></script>')
 <script>
-    $(document).ready(function(){
-        setTimeout(()=>{$('[data-toggle="tooltip"]').tooltip();},500);
+    $(document).ready(function () {
+        setTimeout(() => {
+            $('[data-toggle="tooltip"]').tooltip();
+        }, 500);
     });
 </script>
 </body>

@@ -4,6 +4,7 @@
 window.Form = class Form {
 
     constructor(data) {
+        this.originalData = data;
         $.extend(this, data);
 
         /**
@@ -47,5 +48,15 @@ window.Form = class Form {
     setErrors(errors) {
         this.busy = false;
         this.errors.set(errors);
+    }
+
+    reset(){
+        for (let field in this.originalData) {
+            if(this.hasOwnProperty(field)){
+                this[field] = this.originalData[field];
+            }
+        }
+
+        this.errors.forget();
     }
 };

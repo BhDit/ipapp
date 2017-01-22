@@ -24,4 +24,19 @@ class ProblemsController extends Controller
         ];
         return view('pages.problem', compact('problem', 'loggedin','user_problem_stats'));
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'title' => 'required',
+            'level' => 'required|in:low,medium,hard',
+            'answer' => 'required',
+            'score' => 'required|numeric|min:1',
+            'description' => 'required'
+        ]);
+
+        $problem = Problem::create($request->all());
+
+        return $problem;
+    }
 }
