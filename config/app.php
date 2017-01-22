@@ -168,6 +168,7 @@ return [
          */
 
         Barryvdh\Debugbar\ServiceProvider::class,
+        Conner\Likeable\LikeableServiceProvider::class,
 
         /*
          * Application Service Providers...

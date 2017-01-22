@@ -2,6 +2,10 @@
 
 Auth::routes();
 
+Route::get('/solution/{solution}',function(\App\Solution $solution){
+   $solution->like();
+   return $solution->likeCounter();
+})->middleware('auth');
 Route::get('/home', 'HomeController@index');
 Route::get('/dashboard', 'HomeController@index');
 Route::get('/', 'WelcomeController@index');

@@ -3,10 +3,13 @@
 namespace App;
 
 use Carbon\Carbon;
+use Conner\Likeable\LikeableTrait as Likeable;
 use Illuminate\Database\Eloquent\Model;
 
 class Solution extends Model
 {
+    use Likeable;
+
     protected $table = 'solutions';
 
     protected $with = ['owner'];

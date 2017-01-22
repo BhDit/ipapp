@@ -13,7 +13,8 @@
     "predis/predis": "^1.1",
     "greggilbert/recaptcha": "dev-master",
     "barryvdh/laravel-debugbar": "^2.3",
-    "erusev/parsedown": "^1.6"
+    "erusev/parsedown": "^1.6",
+    "rtconner/laravel-likeable": "~1.2"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
