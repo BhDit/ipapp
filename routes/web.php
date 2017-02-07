@@ -2,6 +2,10 @@
 
 Auth::routes();
 
+Route::put('/solution/{solution}',function(\App\Solution $solution){
+   $solution->toggleLike();
+   return response()->json(['upvotes' => (int) $solution->likeCount]);
+})->middleware('auth');
 Route::get('/home', 'HomeController@index');
 Route::get('/dashboard', 'HomeController@index');
 Route::get('/', 'WelcomeController@index');

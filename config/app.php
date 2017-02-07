@@ -169,6 +169,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Conner\Likeable\LikeableServiceProvider::class,
 
         /*
          * Application Service Providers...

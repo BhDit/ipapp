@@ -2,6 +2,17 @@
 @section('head-scripts')
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 @endsection
+@section('css')
+    <style>
+        .problem {
+            color: #000;
+        }
+        .problem .problem-title{
+            margin-bottom:30px;
+        }
+    </style>
+
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12 problem">

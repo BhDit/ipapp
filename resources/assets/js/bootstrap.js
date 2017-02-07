@@ -3,6 +3,8 @@ window._ = require('lodash');
 window.pluralize = require('pluralize');
 window.moment = require('moment');
 
+pluralize.addIrregularRule('upvote', 'upvotes');
+
 String.prototype.getInitials = function(glue){
     if (typeof glue == "undefined") {
         var glue = true;
