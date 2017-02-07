@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Problem;
 use App\Solution;
+use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
-use Charts;
 
 class ProblemsController extends Controller
 {
@@ -37,7 +37,7 @@ class ProblemsController extends Controller
             ->responsive(false);
 
 
-        return view('pages.problem', compact('problem', 'loggedin','user_problem_stats'));
+        return view('pages.problem', compact('problem', 'loggedin','user_problem_stats','chart'));
     }
 
     public function store(Request $request)

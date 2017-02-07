@@ -168,6 +168,7 @@ return [
          */
 
         Barryvdh\Debugbar\ServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -178,7 +179,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
     ],
 
     /*

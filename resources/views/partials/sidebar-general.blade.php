@@ -1,5 +1,1 @@
-
-
-@section('sidebar')
-    {!! $chart->render() !!} 
-@stop
+{!! $chart->render() !!}

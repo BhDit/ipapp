@@ -22,6 +22,9 @@
         </div>
     </div>
 @endsection
+@section('sidebar')
+    @include('partials.sidebar-general')
+@endsection
 @section('css')
     .problem {
     color: #000;
