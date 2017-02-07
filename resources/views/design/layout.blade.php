@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smart Ask</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    {!! Charts::assets() !!}
 </head>
 
 <body>
@@ -22,32 +23,7 @@
     </ul>
 </div>
 
-<table style="width:100%">
-    <tr >
-        <th style="width:20%">
-            <ul>
-                <li><a class="active">PROBLEMS</a></li>
-                <li><a >Nivel easy</a></li>
-                <li><a href="/question">intrebarea 1</a></li>
-                <li><a >Nivel middle</a></li>
-                <li><a href="/question">intrebarea 2</a></li>
-                <li><a >Nivel hard</a></li>
-                <li><a href="/question">intrbarea 3</a></li>
-                @yield('part1')
-            </ul></th>
-        <th  style="width:50%">
-            @yield('part2')
-        </th>
-        <th style="width:20%">
-            @yield('part3')
 
-            if auth
-            @include('profile-card')
-            if not
-            @include('login-card')
-        </th>
-    </tr>
-</table>
 <div id="footer">
     Copyright &copy; 2017 Smart Ask. All rights reserved.
 </div>

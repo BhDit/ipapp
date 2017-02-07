@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Problem;
 use App\Solution;
 use Illuminate\Http\Request;
+use Charts;
 
 class ProblemsController extends Controller
 {
@@ -22,6 +23,20 @@ class ProblemsController extends Controller
             "posted" => ($loggedin) ? $request->user()->postedSolutionTo($problem->id) : false,
             "solution" => ($loggedin) ? Solution::where('user_id', $request->user()->id)->where('problem_id', $problem->id)->first():null,
         ];
+
+        $nr1 = Problem::with('solutions')->where('level','low')->count();
+        $nr2 = Problem::with('solutions')->where('level','medium')->count();
+        $nr3 = Problem::with('solutions')->where('level','hard')->count();
+
+        $chart = Charts::create('donut', 'morris')
+            // ->view('custom.line.chart.view') // Use this if you want to use your own template
+            ->title('My solved problems')
+            ->labels(['Low', 'Medium', 'Hard'])
+            ->values([$nr1,$nr2,$nr3])
+            ->dimensions(300,300)
+            ->responsive(false);
+
+
         return view('pages.problem', compact('problem', 'loggedin','user_problem_stats'));
     }
 
