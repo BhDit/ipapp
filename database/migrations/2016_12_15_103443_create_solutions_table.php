@@ -23,8 +23,7 @@ class CreateSolutionsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->text('body');
-            $table->unsignedInteger('upvotes')->default(0);
-            //TODO: add language support
+
             $table->timestamps();
 
             $table->unique(['id','problem_id','user_id'],'users_solution');

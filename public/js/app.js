@@ -15674,12 +15674,7 @@ module.exports = {
          * Load the data for an authenticated user.
          */
         loadDataForAuthenticatedUser: function loadDataForAuthenticatedUser() {
-            var _this = this;
-
             this.getNotifications();
-            setInterval(function () {
-                _this.getNotifications();
-            }, 10000);
         },
 
 
@@ -15687,17 +15682,17 @@ module.exports = {
          * Refresh the current API token every few minutes.
          */
         refreshApiTokenEveryFewMinutes: function refreshApiTokenEveryFewMinutes() {
-            var _this2 = this;
+            var _this = this;
 
             this.lastRefreshedApiTokenAt = moment();
 
             setInterval(function () {
-                _this2.refreshApiToken();
+                _this.refreshApiToken();
             }, 240000);
 
             setInterval(function () {
-                if (_this2.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
-                    _this2.refreshApiToken();
+                if (_this.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
+                    _this.refreshApiToken();
                 }
             }, 5000);
         },
@@ -15715,10 +15710,10 @@ module.exports = {
          * Get the current user of the application.
          */
         getUser: function getUser() {
-            var _this3 = this;
+            var _this2 = this;
 
             this.$http.get('/user/current').then(function (response) {
-                _this3.user = response.data;
+                _this2.user = response.data;
             });
         },
 
@@ -15727,13 +15722,13 @@ module.exports = {
          * Get the application notifications.
          */
         getNotifications: function getNotifications() {
-            var _this4 = this;
+            var _this3 = this;
 
             this.loadingNotifications = true;
 
             this.$http.get('/notifications/recent').then(function (response) {
-                _this4.notifications = response.data;
-                _this4.loadingNotifications = false;
+                _this3.notifications = response.data;
+                _this3.loadingNotifications = false;
             });
         },
 
@@ -15768,16 +15763,16 @@ module.exports = {
          * Send a customer support request.
          */
         sendFeedbackRequest: function sendFeedbackRequest() {
-            var _this5 = this;
+            var _this4 = this;
 
             IPAPP.post('/feedback', this.feedbackForm).then(function () {
                 $('#modal-feedback').modal('hide');
 
-                _this5.showFeedbackRequestSuccessMessage();
+                _this4.showFeedbackRequestSuccessMessage();
 
-                _this5.feedbackForm.level = 1;
-                _this5.feedbackForm.subject = '';
-                _this5.feedbackForm.message = '';
+                _this4.feedbackForm.level = 1;
+                _this4.feedbackForm.subject = '';
+                _this4.feedbackForm.message = '';
             });
         },
         submitNewProblem: function submitNewProblem() {},
@@ -15818,7 +15813,7 @@ module.exports = {
          * Determine if the user has any unread notifications.
          */
         hasUnreadAnnouncements: function hasUnreadAnnouncements() {
-            var _this6 = this;
+            var _this5 = this;
 
             if (this.notifications && this.user) {
                 if (this.notifications.announcements.length && !this.user.last_read_announcements_at) {
@@ -15826,7 +15821,7 @@ module.exports = {
                 }
 
                 return _.filter(this.notifications.announcements, function (announcement) {
-                    return moment.utc(_this6.user.last_read_announcements_at).isBefore(moment.utc(announcement.created_at));
+                    return moment.utc(_this5.user.last_read_announcements_at).isBefore(moment.utc(announcement.created_at));
                 }).length > 0;
             }
 

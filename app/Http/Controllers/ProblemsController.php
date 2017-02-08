@@ -18,31 +18,16 @@ class ProblemsController extends Controller
     {
         $problem = Problem::with('solutions')->find($id);
         $loggedin = auth()->check();
-        $user_problem_stats = [
-            "solved" => ($loggedin) ? $problem->isSolvedBy($request->user()) : false,
-            "posted" => ($loggedin) ? $request->user()->postedSolutionTo($problem->id) : false,
-            "solution" => ($loggedin) ? Solution::where('user_id', $request->user()->id)->where('problem_id', $problem->id)->first():null,
-        ];
 
-        $nr1 = Problem::with('solutions')->where('level','low')->count();
-        $nr2 = Problem::with('solutions')->where('level','medium')->count();
-        $nr3 = Problem::with('solutions')->where('level','hard')->count();
+        $user_problem_stats = $this->getUserStats($request, $loggedin, $problem);
+        $chart = $this->getChartObject();
 
-        $chart = Charts::create('donut', 'morris')
-            // ->view('custom.line.chart.view') // Use this if you want to use your own template
-            ->title('My solved problems')
-            ->labels(['Low', 'Medium', 'Hard'])
-            ->values([$nr1,$nr2,$nr3])
-            ->dimensions(300,300)
-            ->responsive(false);
-
-
-        return view('pages.problem', compact('problem', 'loggedin','user_problem_stats','chart'));
+        return view('pages.problem', compact('problem', 'loggedin', 'user_problem_stats', 'chart'));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'title' => 'required',
             'level' => 'required|in:low,medium,hard',
             'answer' => 'required',
@@ -53,5 +38,41 @@ class ProblemsController extends Controller
         $problem = Problem::create($request->all());
 
         return $problem;
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getChartObject()
+    {
+        $low = request()->user()->solved()->where('level', 'low')->count();
+        $medium = request()->user()->solved()->where('level', 'medium')->count();
+        $hard = request()->user()->solved()->where('level', 'hard')->count();
+
+        $chart = Charts::create('donut', 'morris')
+            // ->view('custom.line.chart.view') // Use this if you want to use your own template
+            ->title('My solved problems')
+            ->labels(['Low', 'Medium', 'Hard'])
+            ->values([$low, $medium, $hard])
+            ->dimensions(300, 300)
+            ->responsive(false);
+
+        return $chart;
+    }
+
+    /**
+     * @param Request $request
+     * @param $loggedin
+     * @param $problem
+     * @return array
+     */
+    private function getUserStats(Request $request, $loggedin, $problem): array
+    {
+        $user_problem_stats = [
+            "solved" => ($loggedin) ? $problem->isSolvedBy($request->user()) : false,
+            "posted" => ($loggedin) ? $request->user()->postedSolutionTo($problem->id) : false,
+            "solution" => ($loggedin) ? $request->user()->solutions()->whereProblemId(1)->first() : null,
+        ];
+        return $user_problem_stats;
     }
 }

@@ -85,9 +85,6 @@ module.exports = {
          */
         loadDataForAuthenticatedUser() {
             this.getNotifications();
-            setInterval(() => {
-                this.getNotifications();
-            }, 10000);
         },
 
 
