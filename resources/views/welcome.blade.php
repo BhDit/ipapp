@@ -84,7 +84,10 @@
 
 @endsection
 @section('css')
-    .section {
-    margin: 10px 0;
-    }
+    <style>
+        .section {
+            margin: 10px 0;
+        }
+    </style>
+
 @endsection
