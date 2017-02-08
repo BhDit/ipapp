@@ -8,6 +8,7 @@ class IPAPP
 {
     private static $developers =[
         'donkfather@yahoo.com',
+        'admin@example.com',
     ];
 
     public static $cheatPoints = 10;

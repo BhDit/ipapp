@@ -37,7 +37,7 @@
                     <br>
                     <div class="alert alert-warning">
                         <button type="button" class="btn btn-danger pull-right" @click="cheat">Cheat</button>
-                        <strong>You can Cheat!</strong> but loose 5 points.
+                        <strong>You can Cheat!</strong> but loose 10 points.
                         <br>
                         <strong>PS: </strong>There is a chance the app won't catch you.
                         <div class="clearfix"></div>

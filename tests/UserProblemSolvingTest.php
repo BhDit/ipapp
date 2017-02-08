@@ -67,4 +67,21 @@ class UserProblemSolvingTest extends TestCase
 
         $this->assertTrue($problem->isSolvedBy($user));
     }
+
+    /**
+     * @test
+     */
+    public function user_cheated_on_problem()
+    {
+        $user = factory(App\User::class)->create();
+        $user->points = 100;
+        $user->save();
+        $this->actingAs($user);
+
+        $problem = factory(App\Problem::class)->create();
+
+        $user->cheatOn($problem);
+
+        $this->assertTrue($user->points == 100 - IPAPP::$cheatPoints);
+    }
 }
