@@ -57623,7 +57623,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.cheat
     }
-  }, [_vm._v("Cheat")]), _vm._v(" "), _c('strong', [_vm._v("You can Cheat!")]), _vm._v(" but loose 5 points.\n                    "), _c('br'), _vm._v(" "), _c('strong', [_vm._v("PS: ")]), _vm._v("There is a chance the app won't catch you.\n                    "), _c('div', {
+  }, [_vm._v("Cheat")]), _vm._v(" "), _c('strong', [_vm._v("You can Cheat!")]), _vm._v(" but loose 10 points.\n                    "), _c('br'), _vm._v(" "), _c('strong', [_vm._v("PS: ")]), _vm._v("There is a chance the app won't catch you.\n                    "), _c('div', {
     staticClass: "clearfix"
   })]), _vm._v(" "), _c('p', [_vm._v("\n                    You can post the solution and see other's only if you solve the problem.\n                ")])])])])])
 },staticRenderFns: []}
