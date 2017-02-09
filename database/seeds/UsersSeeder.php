@@ -25,6 +25,6 @@ class UsersSeeder extends Seeder
 
         $problems = Problem::take(10)->get();
         $userBegginer->solve($problems[0],$problems[0]->answer);
-        
+
     }
 }

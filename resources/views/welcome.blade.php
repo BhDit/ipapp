@@ -16,8 +16,8 @@
                 <div class="bignumber"> 1</div>
                 <img src="{{URL::asset('images\hex-log.jpg')}}" alt="">
             </div>
-            <div class="col-md-3 col-md-offset-3 ">
-                <h3> ASK more Questions</h3>
+            <div class="col-md-4 col-md-offset-3 ">
+                <h3> Give these challenges a try</h3>
             </div>
         </div>
 
