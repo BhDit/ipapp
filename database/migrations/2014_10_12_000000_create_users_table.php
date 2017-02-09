@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
 
             $table->boolean('confirmed_email')->default(false);
             $table->unsignedInteger('points')->default(0);
+            $table->unsignedBigInteger('xp')->default(0);
 
             $table->rememberToken();
             $table->timestamps();

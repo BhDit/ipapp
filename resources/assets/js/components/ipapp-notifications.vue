@@ -140,8 +140,9 @@
              */
             updateLastReadAnnouncementsTimestamp()
             {
-                this.$http.put('/user/last-read-announcements-at');
-                this.$dispatch('updateUser');
+                this.$http.put('/user/last-read-announcements-at', {}).then(() => {
+                    this.$dispatch('updateUser');
+                });
             }
         },
 

@@ -15,7 +15,8 @@
     "barryvdh/laravel-debugbar": "^2.3",
     "erusev/parsedown": "^1.6",
     "consoletvs/charts": "3.*",
-    "rtconner/laravel-likeable": "~1.2"
+    "rtconner/laravel-likeable": "~1.2",
+    "graham-campbell/markdown": "^7.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

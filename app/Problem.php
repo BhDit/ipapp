@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Exceptions\Problem\IncorrectAnswer;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Model;
 
 class Problem extends Model
@@ -23,7 +23,7 @@ class Problem extends Model
     /**
      * @var array
      */
-    protected $appends = ['solvedBy','userSolved'];
+    protected $appends = ['solvedBy','userSolved','parsedDescription'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -89,6 +89,10 @@ class Problem extends Model
         }
 
         return false;
+    }
+
+    public function getParsedDescriptionAttribute(){
+        return Markdown::convertToHtml($this->attributes['description']);
     }
 
 }

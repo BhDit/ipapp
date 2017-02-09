@@ -21,6 +21,7 @@ window.app = new Vue({
         let self = this;
         Bus.$on('received-points',function (points) {
             window.IPAPP.user.points += points;
+            window.IPAPP.user.xp += points*10;
         });
         Bus.$on('lost-points',function (points) {
             window.IPAPP.user.points -= points;

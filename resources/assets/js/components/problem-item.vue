@@ -95,6 +95,9 @@
             }
         },
         beforeMount(){
+            if(this.problem.userSolved){
+                this.problem.solvedBy -= 1;
+            }
             this.users = window.pluralize('user', this.problem.solvedBy, true);
         }
     }

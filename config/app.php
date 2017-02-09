@@ -168,9 +168,8 @@ return [
          */
 
         Barryvdh\Debugbar\ServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
         Conner\Likeable\LikeableServiceProvider::class,
-
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -229,8 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
-
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
     ],
 
 ];

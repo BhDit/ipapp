@@ -10,15 +10,27 @@ use League\Flysystem\Exception;
 
 class XhrController extends Controller
 {
+    /**
+     * XhrController constructor.
+     */
     public function __construct()
     {
         $this->middleware('throttle:5,1',['only'=>['checkAnswer']]);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function problems()
     {
         return Problem::all();
     }
 
+    /**
+     * @param Problem $problem
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function checkAnswer(Problem $problem, Request $request)
     {
         $this->validate($request, [
@@ -34,6 +46,11 @@ class XhrController extends Controller
         return response()->json(['valid' => $valid,'points' => (int) $problem->score], 200);
     }
 
+    /**
+     * @param Problem $problem
+     * @param Request $request
+     * @return $this|\Illuminate\Http\JsonResponse
+     */
     public function storeSolution(Problem $problem, Request $request)
     {
         $this->validate($request,[
@@ -50,15 +67,24 @@ class XhrController extends Controller
             return response()->json(['body' => ['You have already submitted a solution']],401);
         }
 
-        return $solution->load('owner');
+        return response()->json($solution->load('owner'));
     }
 
+    /**
+     * @param Problem $problem
+     * @return mixed
+     */
     public function getSolutions(Problem $problem)
     {
         return $problem->solutions;
     }
 
-    public function cheat(Problem $problem,Request $request)
+    /**
+     * @param Problem $problem
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function cheat(Problem $problem, Request $request)
     {
         if($request->user()->points < \IPAPP::$cheatPoints){
             return response()->json('Not enough points',401);

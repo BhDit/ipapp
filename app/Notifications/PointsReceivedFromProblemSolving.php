@@ -45,7 +45,7 @@ class PointsReceivedFromProblemSolving extends Notification
         return (new MailMessage)
                     ->line("You have received {$this->problem->score} points.")
                     ->line("Go and earn more")
-                    ->action('Go earn', 'https://ipapp.dev')
+                    ->action('Go earn', config('app_url'))
                     ->line('Thank you for using our application!');
     }
 

@@ -15162,6 +15162,7 @@ window.app = new Vue({
         var self = this;
         Bus.$on('received-points', function (points) {
             window.IPAPP.user.points += points;
+            window.IPAPP.user.xp += points * 10;
         });
         Bus.$on('lost-points', function (points) {
             window.IPAPP.user.points -= points;
@@ -15217,8 +15218,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
          * Update the last read announcements timestamp.
          */
         updateLastReadAnnouncementsTimestamp() {
-            this.$http.put('/user/last-read-announcements-at');
-            this.$dispatch('updateUser');
+            this.$http.put('/user/last-read-announcements-at', {}).then(() => {
+                this.$dispatch('updateUser');
+            });
         }
     },
 
@@ -56820,6 +56822,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
         };
     },
     beforeMount() {
+        if (this.problem.userSolved) {
+            this.problem.solvedBy -= 1;
+        }
         this.users = window.pluralize('user', this.problem.solvedBy, true);
     }
 };
@@ -57537,11 +57542,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'has-error': _vm.newProblemForm.errors.has('description')
     }
-  }, [_c('label', {
-    attrs: {
-      "for": "npm-description"
-    }
-  }, [_vm._v("Description: ")]), _vm._v(" "), _c('textarea', {
+  }, [_vm._m(1), _vm._v(" "), _c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -57610,6 +57611,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("×")]), _vm._v(" "), _c('h4', {
     staticClass: "modal-title"
   }, [_vm._v("Add new problem")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('label', {
+    attrs: {
+      "for": "npm-description"
+    }
+  }, [_vm._v("\n                                Description ( supports\n                                "), _c('a', {
+    attrs: {
+      "href": "https://guides.github.com/features/mastering-markdown/",
+      "target": "_blank"
+    }
+  }, [_vm._v("Markdown")]), _vm._v("\n                                ):\n                            ")])
 }]}
 module.exports.render._withStripped = true
 if (false) {

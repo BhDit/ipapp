@@ -28,6 +28,7 @@ class AddProblemScoreToUserPoints
     public function handle(UserSolvedProblem $event)
     {
         $event->user->addPoints($event->problem->score);
+        $event->user->addXp($event->problem->score);
 
         $event->user->notify(new PointsReceivedFromProblemSolving($event->problem));
     }

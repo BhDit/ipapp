@@ -13,9 +13,15 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\UserSolvedProblem' => [
-            'App\Listeners\AddProblemScoreToUserPoints',
+        \App\Events\UserSolvedProblem::class => [
+            \App\Listeners\AddProblemScoreToUserPoints::class,
         ],
+        \App\Events\SolutionUpvoted::class => [
+            \App\Listeners\RecordUpvotesAndReward::class
+        ],
+        \App\Events\SolutionDownvoted::class => [
+            \App\Listeners\RecordDownvotesAndPunish::class
+        ]
     ];
 
     /**

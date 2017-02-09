@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-12 problem">
             <h3 class="problem-title">{{$problem->title}}</h3>
-            <p class="problem-description">{{$problem->description}}</p>
+            <p class="problem-description">{!! $problem->parsedDescription !!}</p>
         </div>
     </div>
     <div class="row">

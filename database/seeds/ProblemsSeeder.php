@@ -13,12 +13,21 @@ class ProblemsSeeder extends Seeder
     {
         $problems = [
             [
-                'title' => '',
+                'title' => 'TEST',
                 'level' => 'low', // low / medium / hard
-                'answer' => 0, // integer or text
-                'score' => 0, // low - 5 / medium - 10 / hard - 15
-                'description' => '',
+                'answer' => 'test', // integer or text
+                'score' => 100, // low - 5 / medium - 10 / hard - 15
+                'description' => 'test',
+            ],
+            [
+                'title' => 'TEST2',
+                'level' => 'medium', // low / medium / hard
+                'answer' => 'test', // integer or text
+                'score' => 100, // low - 5 / medium - 10 / hard - 15
+                'description' => 'test',
             ]
         ];
+
+        DB::table('problems')->insert($problems);
     }
 }

@@ -31,7 +31,8 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'points' => 'int'
+        'points' => 'int',
+        'xp' => 'int'
     ];
 
     /**
@@ -126,6 +127,12 @@ class User extends Authenticatable
     public function isDeveloper()
     {
         return \IPAPP::developer($this->email);
+    }
+
+    public function addXp($score)
+    {
+        $this->xp += $score*10;
+        return $this->save();
     }
 
 }

@@ -6,6 +6,9 @@ namespace App;
 
 class IPAPP
 {
+    public static $solutionUpvotesReward = 30;
+    public static $votesCheckpointForReward = 30;
+    public static $upvoteXp = 5;
     private static $developers =[
         'donkfather@yahoo.com',
         'admin@example.com',

@@ -15162,6 +15162,7 @@ window.app = new Vue({
         var self = this;
         Bus.$on('received-points', function (points) {
             window.IPAPP.user.points += points;
+            window.IPAPP.user.xp += points * 10;
         });
         Bus.$on('lost-points', function (points) {
             window.IPAPP.user.points -= points;
@@ -15217,8 +15218,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
          * Update the last read announcements timestamp.
          */
         updateLastReadAnnouncementsTimestamp() {
-            this.$http.put('/user/last-read-announcements-at');
-            this.$dispatch('updateUser');
+            this.$http.put('/user/last-read-announcements-at', {}).then(() => {
+                this.$dispatch('updateUser');
+            });
         }
     },
 

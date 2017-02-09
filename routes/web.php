@@ -2,10 +2,6 @@
 
 Auth::routes();
 
-Route::put('/solution/{solution}',function(\App\Solution $solution){
-   $solution->toggleLike();
-   return response()->json(['upvotes' => (int) $solution->likeCount]);
-})->middleware('auth');
 Route::get('/home', 'HomeController@index');
 Route::get('/dashboard', 'HomeController@index');
 Route::get('/', 'WelcomeController@index');
@@ -35,4 +31,5 @@ Route::group(['prefix' => 'xhr'],function(){
     Route::post('problem/{problem}/solution','XhrController@storeSolution');
     Route::get('problem/{problem}/solutions','XhrController@getSolutions');
     Route::post('problem/{problem}/cheat','XhrController@cheat');
+    Route::put('vote/{solution}','SolutionController@vote')->middleware('auth');
 });

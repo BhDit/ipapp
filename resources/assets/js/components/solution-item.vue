@@ -61,12 +61,12 @@
         methods: {
             toggleUpvote(){
                 this.upvote.busy = true;
-                this.$http.put('/solution/' + this.solution.id, {})
+                this.$http.put('/xhr/vote/' + this.solution.id, {})
                     .then(resp => {
                         this.voted = !this.voted;
                         this.upvotes = resp.data.upvotes;
                         this.upvote.busy = false;
-                    }).catch(err => {
+                    }).catch( () => {
                     this.upvote.busy = false;
                 });
             }

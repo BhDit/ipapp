@@ -49,7 +49,11 @@
                                         </span>
                             </div>
                             <div class="form-group" :class="{'has-error': newProblemForm.errors.has('description')}">
-                                <label for="npm-description">Description: </label>
+                                <label for="npm-description">
+                                    Description ( supports
+                                    <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>
+                                    ):
+                                </label>
                                 <textarea name="description" id="npm-description" cols="30" rows="10"
                                           class="form-control" v-model="newProblemForm.description"></textarea>
                                 <span class="help-block" v-show="newProblemForm.errors.has('description')">
