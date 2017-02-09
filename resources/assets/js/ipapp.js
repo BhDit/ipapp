@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Export the root application.
  */
@@ -10,11 +12,10 @@ module.exports = {
      */
     lastRefreshedApiTokenAt: null,
 
-
     /**
      * The application's data.
      */
-    data() {
+    data: function data() {
         return {
             loadingNotifications: false,
             notifications: null,
@@ -23,15 +24,15 @@ module.exports = {
                 level: 1,
                 subject: '',
                 message: ''
-            }),
-        }
+            })
+        };
     },
 
 
     /**
      * The component has been created by Vue.
      */
-    created() {
+    created: function created() {
         var self = this;
 
         if (IPAPP.userId) {
@@ -47,7 +48,7 @@ module.exports = {
     /**
      * Prepare the application.
      */
-    mounted() {
+    mounted: function mounted() {
         this.listen();
         this.whenReady();
     },
@@ -57,11 +58,10 @@ module.exports = {
         /**
          * Finish bootstrapping the application.
          */
-        whenReady() {
+        whenReady: function whenReady() {
             //
         },
-
-        listen() {
+        listen: function listen() {
             Bus.$on('showFeedbackForm', function () {
                 if (self.ipapp.user) {
                     self.feedbackForm.from = self.ipapp.user.email;
@@ -69,21 +69,22 @@ module.exports = {
 
                 $('#modal-feedback').modal('show');
 
-                setTimeout(() => {
+                setTimeout(function () {
                     $('#feedback-subject').focus();
                 }, 500);
             });
-            Bus.$on('showNewProblemForm', () => {
+            Bus.$on('showNewProblemForm', function () {
                 $('#new-problem-modal').modal('show');
-                setTimeout(() => {
+                setTimeout(function () {
                     $('#npm-title').focus();
                 }, 500);
             });
         },
+
         /**
          * Load the data for an authenticated user.
          */
-        loadDataForAuthenticatedUser() {
+        loadDataForAuthenticatedUser: function loadDataForAuthenticatedUser() {
             this.getNotifications();
         },
 
@@ -91,16 +92,18 @@ module.exports = {
         /**
          * Refresh the current API token every few minutes.
          */
-        refreshApiTokenEveryFewMinutes() {
+        refreshApiTokenEveryFewMinutes: function refreshApiTokenEveryFewMinutes() {
+            var _this = this;
+
             this.lastRefreshedApiTokenAt = moment();
 
-            setInterval(() => {
-                this.refreshApiToken();
+            setInterval(function () {
+                _this.refreshApiToken();
             }, 240000);
 
-            setInterval(() => {
-                if (this.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
-                    this.refreshApiToken();
+            setInterval(function () {
+                if (_this.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
+                    _this.refreshApiToken();
                 }
             }, 5000);
         },
@@ -110,39 +113,41 @@ module.exports = {
          * Refresh the current API token.
          refreshApiToken() {
                 this.lastRefreshedApiTokenAt = moment();
-
-                this.$http.put('/ipapp/token');
+                  this.$http.put('/ipapp/token');
             },
          */
-
 
         /*
          * Get the current user of the application.
          */
-        getUser() {
-            this.$http.get('/user/current')
-                .then(response => {
-                    this.user = response.data;
-                });
+        getUser: function getUser() {
+            var _this2 = this;
+
+            this.$http.get('/user/current').then(function (response) {
+                _this2.user = response.data;
+            });
         },
+
 
         /**
          * Get the application notifications.
          */
-        getNotifications() {
+        getNotifications: function getNotifications() {
+            var _this3 = this;
+
             this.loadingNotifications = true;
 
-            this.$http.get('/notifications/recent')
-                .then(response => {
-                    this.notifications = response.data;
-                    this.loadingNotifications = false;
-                });
+            this.$http.get('/notifications/recent').then(function (response) {
+                _this3.notifications = response.data;
+                _this3.loadingNotifications = false;
+            });
         },
+
 
         /**
          * Mark the current notifications as read.
          */
-        markNotificationsAsRead() {
+        markNotificationsAsRead: function markNotificationsAsRead() {
             if (!this.hasUnreadNotifications) {
                 return;
             }
@@ -151,82 +156,83 @@ module.exports = {
                 notifications: _.map(this.notifications.notifications, 'id')
             });
 
-            _.each(this.notifications.notifications, notification => {
+            _.each(this.notifications.notifications, function (notification) {
                 notification.read_at = new Date();
             });
-
         },
+
 
         /*
          * Update feedback form level
          * */
-        updateFeedbackLevel(level){
+        updateFeedbackLevel: function updateFeedbackLevel(level) {
             this.feedbackForm.level = level;
         },
+
 
         /**
          * Send a customer support request.
          */
-        sendFeedbackRequest() {
-            IPAPP.post('/feedback', this.feedbackForm)
-                .then(() => {
-                    $('#modal-feedback').modal('hide');
+        sendFeedbackRequest: function sendFeedbackRequest() {
+            var _this4 = this;
 
-                    this.showFeedbackRequestSuccessMessage();
+            IPAPP.post('/feedback', this.feedbackForm).then(function () {
+                $('#modal-feedback').modal('hide');
 
-                    this.feedbackForm.level = 1;
-                    this.feedbackForm.subject = '';
-                    this.feedbackForm.message = '';
-                });
+                _this4.showFeedbackRequestSuccessMessage();
+
+                _this4.feedbackForm.level = 1;
+                _this4.feedbackForm.subject = '';
+                _this4.feedbackForm.message = '';
+            });
         },
+        submitNewProblem: function submitNewProblem() {},
 
-        submitNewProblem(){
-
-        },
 
         /**
          * Show an alert informing the user their support request was sent.
          */
-        showFeedbackRequestSuccessMessage() {
+        showFeedbackRequestSuccessMessage: function showFeedbackRequestSuccessMessage() {
             swal({
                 title: 'Got It!',
                 text: 'We have received your message and will respond soon!',
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000,
-                onOpen: () => {
+                onOpen: function onOpen() {
                     console.log('reached');
                 }
             });
         },
-        logout(){
+        logout: function logout() {
             document.getElementById('logout-form').submit();
         },
+
 
         /**
          * Show the user's notifications.
          */
-        showNotifications() {
+        showNotifications: function showNotifications() {
             $("#modal-notifications").modal('show');
 
             this.markNotificationsAsRead();
-        },
+        }
     },
 
     computed: {
         /**
          * Determine if the user has any unread notifications.
          */
-        hasUnreadAnnouncements() {
+        hasUnreadAnnouncements: function hasUnreadAnnouncements() {
+            var _this5 = this;
+
             if (this.notifications && this.user) {
                 if (this.notifications.announcements.length && !this.user.last_read_announcements_at) {
                     return true;
                 }
 
-                return _.filter(this.notifications.announcements, announcement => {
-                        return moment.utc(this.user.last_read_announcements_at).isBefore(
-                            moment.utc(announcement.created_at)
-                        );
+                return _.filter(this.notifications.announcements, function (announcement) {
+                        return moment.utc(_this5.user.last_read_announcements_at).isBefore(moment.utc(announcement.created_at));
                     }).length > 0;
             }
 
@@ -237,14 +243,14 @@ module.exports = {
         /**
          * Determine if the user has any unread notifications.
          */
-        hasUnreadNotifications() {
+        hasUnreadNotifications: function hasUnreadNotifications() {
             if (this.notifications) {
-                return _.filter(this.notifications.notifications, notification => {
+                return _.filter(this.notifications.notifications, function (notification) {
                         return !notification.read_at;
                     }).length > 0;
             }
 
             return false;
-        },
+        }
     }
 };

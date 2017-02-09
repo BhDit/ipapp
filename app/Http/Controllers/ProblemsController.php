@@ -20,9 +20,8 @@ class ProblemsController extends Controller
         $loggedin = auth()->check();
 
         $user_problem_stats = $this->getUserStats($request, $loggedin, $problem);
-        $chart = $this->getChartObject();
 
-        return view('pages.problem', compact('problem', 'loggedin', 'user_problem_stats', 'chart'));
+        return view('pages.problem', compact('problem', 'loggedin', 'user_problem_stats'));
     }
 
     public function store(Request $request)
@@ -39,27 +38,6 @@ class ProblemsController extends Controller
 
         return $problem;
     }
-
-    /**
-     * @return mixed
-     */
-    private function getChartObject()
-    {
-        $low = request()->user()->solved()->where('level', 'low')->count();
-        $medium = request()->user()->solved()->where('level', 'medium')->count();
-        $hard = request()->user()->solved()->where('level', 'hard')->count();
-
-        $chart = Charts::create('donut', 'morris')
-            // ->view('custom.line.chart.view') // Use this if you want to use your own template
-            ->title('My solved problems')
-            ->labels(['Low', 'Medium', 'Hard'])
-            ->values([$low, $medium, $hard])
-            ->dimensions(300, 300)
-            ->responsive(false);
-
-        return $chart;
-    }
-
     /**
      * @param Request $request
      * @param $loggedin

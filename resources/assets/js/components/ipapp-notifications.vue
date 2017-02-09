@@ -5,12 +5,15 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <div class="btn-group">
-                            <button class="btn btn-default" :class="{'active': showingNotifications}" @click="showNotifications" style="width: 50%;">
+                            <button class="btn btn-default" :class="{'active': showingNotifications}"
+                                    @click="showNotifications" style="width: 50%;">
                                 Notifications
                             </button>
 
-                            <button class="btn btn-default" :class="{'active': showingAnnouncements}" @click="showAnnouncements" style="width: 50%;">
-                                Announcements <i class="glyphicon glyphicon-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
+                            <button class="btn btn-default" :class="{'active': showingAnnouncements}"
+                                    @click="showAnnouncements" style="width: 50%;">
+                                Announcements <i class="glyphicon glyphicon-circle text-danger p-l-xs"
+                                                 v-if="hasUnreadAnnouncements"></i>
                             </button>
                         </div>
                     </div>
@@ -21,7 +24,8 @@
                             <i class="glyphicon glyphicon-refresh gly-spin"></i>Loading Notifications
                         </div>-->
 
-                        <div class="notification-container" v-if=" ! loadingNotifications && activeNotifications.length == 0">
+                        <div class="notification-container"
+                             v-if=" ! loadingNotifications && activeNotifications.length == 0">
                             <div class="alert alert-warning m-b-none">
                                 We don't have anything to show you right now! But when we do,
                                 we'll be sure to let you know. Talk to you soon!
@@ -73,7 +77,8 @@
                                     </div>
 
                                     <!-- Announcement Action -->
-                                    <a :href="announcement.action_url" class="btn btn-primary" v-if="announcement.action_text">
+                                    <a :href="announcement.action_url" class="btn btn-primary"
+                                       v-if="announcement.action_text">
                                         {{ announcement.action_text }}
                                     </a>
 
@@ -93,7 +98,7 @@
 </template>
 <script lang="babel">
     export default{
-        props: ['notifications','hasUnreadAnnouncements','loadingNotifications'],
+        props: ['notifications', 'hasUnreadAnnouncements', 'loadingNotifications'],
 
         /**
          * The component's data.
@@ -102,7 +107,7 @@
             return {
                 showingNotifications: true,
                 showingAnnouncements: false
-            }
+            };
         },
 
 
@@ -110,16 +115,19 @@
             /**
              * Show the user notifications.
              */
-            showNotifications() {
+            showNotifications()
+            {
                 this.showingNotifications = true;
                 this.showingAnnouncements = false;
-            },
+            }
+            ,
 
 
             /**
              * Show the product announcements.
              */
-            showAnnouncements() {
+            showAnnouncements()
+            {
                 this.showingNotifications = false;
                 this.showingAnnouncements = true;
 
@@ -130,11 +138,10 @@
             /**
              * Update the last read announcements timestamp.
              */
-            updateLastReadAnnouncementsTimestamp() {
-                this.$http.put('/user/last-read-announcements-at')
-                    .then(() => {
-                        this.$dispatch('updateUser');
-                    });
+            updateLastReadAnnouncementsTimestamp()
+            {
+                this.$http.put('/user/last-read-announcements-at');
+                this.$dispatch('updateUser');
             }
         },
 
@@ -143,8 +150,9 @@
             /**
              * Get the active notifications or announcements.
              */
-            activeNotifications() {
-                if ( ! this.notifications) {
+            activeNotifications()
+            {
+                if (!this.notifications) {
                     return [];
                 }
 
@@ -153,21 +161,25 @@
                 } else {
                     return this.notifications.announcements;
                 }
-            },
+            }
+            ,
 
 
             /**
              * Determine if the user has any notifications.
              */
-            hasNotifications() {
+            hasNotifications()
+            {
                 return this.notifications && this.notifications.notifications.length > 0;
-            },
+            }
+            ,
 
 
             /**
              * Determine if the user has any announcements.
              */
-            hasAnnouncements() {
+            hasAnnouncements()
+            {
                 return this.notifications && this.notifications.announcements.length > 0;
             }
         }

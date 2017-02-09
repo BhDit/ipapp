@@ -1,1 +1,1 @@
-{!! $chart->render() !!}
+User stats when logged in
