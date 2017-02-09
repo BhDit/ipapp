@@ -49,9 +49,9 @@ Route::group(['prefix' => 'xhr'], function () {
                 [
                     'label' => 'Solved Problems',
                     'backgroundColor' => [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56"
+                        "#CEFF66",
+                        "#FFCE56",
+                        "#FF6384"
                     ],
                     'data' => [$low, $medium, $hard]
                 ]
