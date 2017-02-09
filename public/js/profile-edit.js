@@ -15171,6 +15171,12 @@ window.app = new Vue({
             _this.user = userData;
             window.IPAPP.user = userData;
         });
+    },
+
+    methods: {
+        dbrefresh: function dbrefresh() {
+            this.$http.post('/xhr/dbrefresh', {});
+        }
     }
 });
 

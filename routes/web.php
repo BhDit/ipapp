@@ -32,4 +32,7 @@ Route::group(['prefix' => 'xhr'],function(){
     Route::get('problem/{problem}/solutions','XhrController@getSolutions');
     Route::post('problem/{problem}/cheat','XhrController@cheat');
     Route::put('vote/{solution}','SolutionController@vote')->middleware('auth');
+    Route::post('dbrefresh',function (){
+       \Illuminate\Support\Facades\Artisan::call('migrate:refresh');
+    });
 });
