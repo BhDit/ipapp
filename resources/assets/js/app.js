@@ -31,9 +31,4 @@ window.app = new Vue({
             window.IPAPP.user = userData;
         });
     },
-    methods:{
-        dbrefresh(){
-            this.$http.post('/xhr/dbrefresh',{});
-        }
-    }
 });

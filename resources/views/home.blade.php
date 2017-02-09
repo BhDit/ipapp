@@ -1,11 +1,10 @@
 @extends('layouts.app-full')
 
 @section('content')
-    <profile-edit-form></profile-edit-form>
-    @if(\Auth::check())
-        <button type="button" @click="dbrefresh">Refresh DB</button>
-    @endif
+    <div >
+       <dashboard></dashboard>
+    </div>
 @endsection
 @section('end-scripts')
-    <script src="{{url('/js/profile-edit.js')}}"></script>
+    <script src="{{url('/js/dashboard.js')}}"></script>
 @endsection

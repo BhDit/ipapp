@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 185);
+/******/ 	return __webpack_require__(__webpack_require__.s = 191);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -15171,12 +15171,6 @@ window.app = new Vue({
             _this.user = userData;
             window.IPAPP.user = userData;
         });
-    },
-
-    methods: {
-        dbrefresh: function dbrefresh() {
-            this.$http.post('/xhr/dbrefresh', {});
-        }
     }
 });
 
@@ -56766,13 +56760,13 @@ module.exports = Vue$3;
 /* 139 */,
 /* 140 */,
 /* 141 */,
-/* 142 */
+/* 142 */,
+/* 143 */
 /***/ function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ },
-/* 143 */,
 /* 144 */,
 /* 145 */,
 /* 146 */,
@@ -56814,11 +56808,17 @@ module.exports = Vue$3;
 /* 182 */,
 /* 183 */,
 /* 184 */,
-/* 185 */
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(114);
-module.exports = __webpack_require__(142);
+module.exports = __webpack_require__(143);
 
 
 /***/ }
