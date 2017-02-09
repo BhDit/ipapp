@@ -49,7 +49,7 @@ Route::group(['prefix' => 'xhr'], function () {
                 [
                     'label' => 'Solved Problems',
                     'backgroundColor' => [
-                        "#CEFF66",
+                        "#6aaf6a",
                         "#FFCE56",
                         "#FF6384"
                     ],
