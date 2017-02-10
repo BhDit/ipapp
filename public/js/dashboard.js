@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 192);
+/******/ 	return __webpack_require__(__webpack_require__.s = 194);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -56762,7 +56762,7 @@ module.exports = Vue$3;
 
 __webpack_require__(113);
 
-Vue.component('dashboard', __webpack_require__(164));
+Vue.component('dashboard', __webpack_require__(166));
 
 __webpack_require__(114);
 
@@ -56771,167 +56771,12 @@ __webpack_require__(114);
 /* 141 */,
 /* 142 */,
 /* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* styles */
-__webpack_require__(212)
-
-/* script */
-__vue_exports__ = __webpack_require__(203)
-
-/* template */
-var __vue_template__ = __webpack_require__(173)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "C:\\PROJECTS\\ipapp\\resources\\assets\\js\\components\\dashboard.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2734cf6c", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-2734cf6c", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] dashboard.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
-
-
-/***/ },
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "flex flex-wrap chart-container"
-  }, [_c('div', {
-    staticClass: "panel panel-default text-center"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_c('level-pie', {
-    attrs: {
-      "chart-data": _vm.levelPieData
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "panel panel-default text-center"
-  }, [_vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_c('level-pie', {
-    attrs: {
-      "chart-data": _vm.levelPieData
-    }
-  })], 1)])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "panel-heading"
-  }, [_c('h3', {
-    staticClass: "panel-title "
-  }, [_vm._v("Solved Problems")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "panel-heading"
-  }, [_c('h3', {
-    staticClass: "panel-title "
-  }, [_vm._v("Solved Problems")])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2734cf6c", module.exports)
-  }
-}
-
-/***/ },
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(139);
-
-
-/***/ },
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__level_pie__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__level_pie__ = __webpack_require__(154);
 
 
 
@@ -56952,7 +56797,55 @@ Object.defineProperty(exports, "__esModule", { value: true });
 };
 
 /***/ },
-/* 204 */
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__);
+
+
+/* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["Pie"].extend({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["mixins"].reactiveProp],
+    props: ['chartData'],
+    mounted: function mounted() {
+        this.renderChart(this.chartData, { responsive: true, maintainAspectRatio: true });
+    }
+});
+
+/***/ },
+/* 155 */,
+/* 156 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+// imports
+
+
+// module
+exports.push([module.i, "\n.chart-container {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n}\ncanvas {\n  width: 100% !important;\n  max-width: 800px;\n  height: auto !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -99331,49 +99224,123 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ },
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */
+/* 165 */,
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__);
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* styles */
+__webpack_require__(185)
+
+/* script */
+__vue_exports__ = __webpack_require__(144)
+
+/* template */
+var __vue_template__ = __webpack_require__(175)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "C:\\PROJECTS\\ipapp\\resources\\assets\\js\\components\\dashboard.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2734cf6c", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-2734cf6c", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional) {console.error("[vue-loader] dashboard.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+module.exports = __vue_exports__
 
 
-/* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["Pie"].extend({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["mixins"].reactiveProp],
-    props: ['chartData'],
-    mounted: function mounted() {
-        this.renderChart(this.chartData);
+/***/ },
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "flex flex-wrap chart-container"
+  }, [_c('div', {
+    staticClass: "panel panel-default text-center"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('level-pie', {
+    attrs: {
+      "chart-data": _vm.levelPieData
     }
-});
+  })], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "panel panel-default text-center"
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('level-pie', {
+    attrs: {
+      "chart-data": _vm.levelPieData
+    }
+  })], 1)])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_c('h3', {
+    staticClass: "panel-title "
+  }, [_vm._v("Solved Problems")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_c('h3', {
+    staticClass: "panel-title "
+  }, [_vm._v("Solved Problems")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2734cf6c", module.exports)
+  }
+}
 
 /***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.chart-container {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n}\n", ""]);
-
-// exports
-
-
-/***/ },
-/* 212 */
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(211);
+var content = __webpack_require__(156);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(2)(content, {});
@@ -99391,6 +99358,21 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ },
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(139);
+
 
 /***/ }
 /******/ ]);

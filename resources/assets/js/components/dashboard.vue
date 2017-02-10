@@ -5,7 +5,7 @@
         			<h3 class="panel-title ">Solved Problems</h3>
         	  </div>
         	  <div class="panel-body">
-                  <level-pie :chart-data="levelPieData" ></level-pie>
+                  <level-pie :chart-data="levelPieData"></level-pie>
         	  </div>
         </div>
 
@@ -23,6 +23,11 @@
 <style lang="scss">
     .chart-container{
         justify-content:space-around;
+    }
+    canvas{
+        width: 100% !important;
+        max-width: 800px;
+        height: auto !important;
     }
 </style>
 <script lang="babel">

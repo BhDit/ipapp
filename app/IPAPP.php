@@ -9,12 +9,13 @@ class IPAPP
     public static $solutionUpvotesReward = 30;
     public static $votesCheckpointForReward = 30;
     public static $upvoteXp = 5;
+    public static $cheatPoints = 10;
+
     private static $developers =[
         'donkfather@yahoo.com',
         'admin@example.com',
     ];
 
-    public static $cheatPoints = 10;
 
     /**
      * Determine if the given e-mail address belongs to a developer.

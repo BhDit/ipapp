@@ -1,9 +1,7 @@
 @extends('layouts.app-full')
 
 @section('content')
-    <div >
-       <dashboard></dashboard>
-    </div>
+            <dashboard></dashboard>
 @endsection
 @section('end-scripts')
     <script src="{{url('/js/dashboard.js')}}"></script>
